@@ -23,8 +23,8 @@ const Hero = () => {
       </div>
 
       {/* Decorative shapes */}
-      <div className="absolute top-20 right-4 md:right-20 w-32 md:w-96 h-32 md:h-96 bg-accent rounded-full blur-3xl opacity-20" />
-      <div className="absolute bottom-20 left-4 md:left-20 w-28 md:w-80 h-28 md:h-80 bg-gold rounded-full blur-3xl opacity-15" />
+      <div className="absolute top-20 right-4 md:right-20 w-32 md:w-96 h-32 md:h-96 bg-accent rounded-full blur-3xl opacity-20 hidden sm:block" />
+      <div className="absolute bottom-20 left-4 md:left-20 w-28 md:w-80 h-28 md:h-80 bg-gold rounded-full blur-3xl opacity-15 hidden sm:block" />
 
       {/* Content Container */}
       <div className="container relative z-10 px-4 md:px-6 py-12 md:py-20 lg:py-32">
@@ -32,7 +32,7 @@ const Hero = () => {
           
           {/* Logo */}
           <div className="flex justify-center items-center mb-6 md:mb-10 animate-fade-in opacity-0" style={{animationDelay: '0.1s', animationFillMode: 'forwards'}}>
-            <img src={logo} alt="Ayfa Seguros" className="h-16 md:h-24 lg:h-32 xl:h-40 drop-shadow-xl" />
+            <img src={logo} alt="Ayfa Seguros" className="h-16 md:h-24 lg:h-32 xl:h-40 drop-shadow-xl" fetchPriority="high" decoding="async" />
           </div>
           
           {/* Título Principal */}

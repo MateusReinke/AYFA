@@ -11,9 +11,11 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const nextIsScrolled = window.scrollY > 50;
+      setIsScrolled((prev) => (prev === nextIsScrolled ? prev : nextIsScrolled));
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -76,6 +78,8 @@ const Navigation = () => {
               src={logo} 
               alt="Ayfa Seguros" 
               className="h-10 xl:h-12 cursor-pointer drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" 
+              loading="lazy"
+              decoding="async"
               onClick={() => scrollToSection("hero")}
             />
           </div>
@@ -123,6 +127,8 @@ const Navigation = () => {
                 src={logo} 
                 alt="Ayfa Seguros" 
                 className="h-8 cursor-pointer" 
+                loading="lazy"
+                decoding="async"
                 onClick={() => scrollToSection("hero")}
               />
             </div>

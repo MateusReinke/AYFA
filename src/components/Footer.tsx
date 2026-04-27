@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16 mb-8 md:mb-12">
           <div className="sm:col-span-2 md:col-span-1">
             <div className="flex items-center mb-4 md:mb-6">
-              <img src={logo} alt="Ayfa Seguros" className="h-8 md:h-10 lg:h-12" />
+              <img src={logo} alt="Ayfa Seguros" className="h-8 md:h-10 lg:h-12" loading="lazy" decoding="async" />
             </div>
             <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
               Especialistas em seguros para eventos, garantindo proteção e tranquilidade para organizadores há mais de 15 anos.

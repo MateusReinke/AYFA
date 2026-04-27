@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import bgImage from "@/assets/coverage-bg.jpg"; 
 
@@ -9,17 +10,41 @@ const clientModules = import.meta.glob<{ default: string }>([
   '/src/assets/clients/*.svg',
   '/src/assets/clients/*.webp',
   '/src/assets/clients/*.avif'
-], { eager: true });
-
-const clientImages = Object.entries(clientModules)
-  .filter(([path]) => !path.includes('.gitkeep'))
-  .map(([path, module]) => ({
-    src: module.default,
-    name: path.split('/').pop()?.replace(/\.[^/.]+$/, '') || 'client'
-  }));
+]);
 
 const Clients = () => {
   const { ref, isVisible } = useScrollReveal();
+  const [clientImages, setClientImages] = useState<{ src: string; name: string }[]>([]);
+
+  useEffect(() => {
+    if (!isVisible || clientImages.length > 0) return;
+
+    let isCancelled = false;
+
+    const loadClientImages = async () => {
+      const logos = await Promise.all(
+        Object.entries(clientModules)
+          .filter(([path]) => !path.includes(".gitkeep"))
+          .map(async ([path, importer]) => {
+            const module = await importer();
+            return {
+              src: module.default,
+              name: path.split("/").pop()?.replace(/\.[^/.]+$/, "") || "client",
+            };
+          })
+      );
+
+      if (!isCancelled) {
+        setClientImages(logos);
+      }
+    };
+
+    loadClientImages();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [clientImages.length, isVisible]);
 
   return (
     <section 
@@ -71,6 +96,8 @@ const Clients = () => {
                 <img 
                   src={logo.src} 
                   alt={logo.name}
+                  loading="lazy"
+                  decoding="async"
                   className={`
                     h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain relative z-10 
                     transition-all duration-300
