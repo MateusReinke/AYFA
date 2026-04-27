@@ -57,7 +57,7 @@ const Clients = () => {
         <img 
           src={bgImage} 
           alt="Background Texture" 
-          className="w-full h-full object-cover opacity-5 dark:opacity-[0.02] grayscale blur-sm"
+          className="w-full h-full object-cover opacity-[0.025] dark:opacity-[0.015] grayscale blur-sm"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background" />
       </div>
@@ -85,7 +85,7 @@ const Clients = () => {
             {clientImages.map((logo, index) => (
               <div 
                 key={index}
-                className="group relative px-5 py-4 rounded-xl border border-border/70 bg-card/75 dark:bg-card/40 shadow-sm flex items-center justify-center transition-all duration-500 hover:scale-105 hover:shadow-md cursor-default"
+                className="group relative px-5 py-4 rounded-xl border border-slate-300/80 dark:border-slate-600/80 bg-white/90 dark:bg-slate-900/85 shadow-sm flex items-center justify-center transition-all duration-500 hover:scale-105 hover:shadow-md cursor-default"
               >
                 {/* TRUQUE DE CSS PARA LOGOS PERFEITOS:
                    1. opacity-60: Deixa o logo sutil inicialmente.
@@ -102,16 +102,15 @@ const Clients = () => {
                     h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain relative z-10 
                     transition-all duration-300
                     
-                    /* ESTADO NORMAL (TEMA CLARO) */
-                    opacity-85 grayscale-[0.35] contrast-125 brightness-90
+                    /* ESTADO NORMAL: força logo escuro no claro */
+                    opacity-90 grayscale brightness-0 contrast-150
                     
-                    /* ESTADO NORMAL (TEMA ESCURO - A MÁGICA ACONTECE AQUI) */
-                    dark:grayscale-[0.2] dark:contrast-125 dark:brightness-110
+                    /* ESTADO NORMAL (TEMA ESCURO): força logo claro */
+                    dark:brightness-0 dark:invert dark:contrast-150
 
                     /* HOVER (Recupera visibilidade total) */
                     group-hover:opacity-100 
-                    group-hover:grayscale-0 
-                    group-hover:contrast-100 group-hover:brightness-100
+                    group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-100
                   `}
                 />
               </div>
