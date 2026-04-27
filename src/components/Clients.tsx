@@ -85,7 +85,7 @@ const Clients = () => {
             {clientImages.map((logo, index) => (
               <div 
                 key={index}
-                className="group relative p-4 flex items-center justify-center transition-all duration-500 hover:scale-110 cursor-default"
+                className="group relative px-5 py-4 rounded-xl border border-border/70 bg-card/75 dark:bg-card/40 shadow-sm flex items-center justify-center transition-all duration-500 hover:scale-105 hover:shadow-md cursor-default"
               >
                 {/* TRUQUE DE CSS PARA LOGOS PERFEITOS:
                    1. opacity-60: Deixa o logo sutil inicialmente.
@@ -103,16 +103,15 @@ const Clients = () => {
                     transition-all duration-300
                     
                     /* ESTADO NORMAL (TEMA CLARO) */
-                    opacity-50 grayscale
+                    opacity-85 grayscale-[0.35] contrast-125 brightness-90
                     
                     /* ESTADO NORMAL (TEMA ESCURO - A MÁGICA ACONTECE AQUI) */
-                    dark:brightness-0 dark:invert 
+                    dark:grayscale-[0.2] dark:contrast-125 dark:brightness-110
 
                     /* HOVER (Recupera visibilidade total) */
                     group-hover:opacity-100 
-                    /* Se quiser cor no hover, remova o grayscale abaixo, mas no escuro pode ficar ruim */
                     group-hover:grayscale-0 
-                    group-hover:dark:invert-0 group-hover:dark:brightness-100
+                    group-hover:contrast-100 group-hover:brightness-100
                   `}
                 />
               </div>
