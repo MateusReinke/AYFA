@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { 
-  Shield, Users, Building, Briefcase, Calendar, Truck, HardHat, 
-  Scale, Monitor, Heart, Plane, Home, Stethoscope, PiggyBank, 
+  Users, Building, Briefcase, Calendar, Truck,
+  Scale, Monitor, Heart, Plane, Home, Stethoscope,
   ArrowRight, Factory, MousePointerClick, Car
 } from "lucide-react";
 
@@ -30,44 +30,41 @@ const Services = () => {
         { icon: Stethoscope, text: "Saúde e Odonto" },
         { icon: Home, text: "Residencial" },
         { icon: Car, text: "Automóvel" },
-        { icon: Plane, text: "Viagem" },
-        { icon: PiggyBank, text: "Previdência" }
+        { icon: Plane, text: "Viagem" }
       ]
     },
     {
       id: 1,
-      title: "Sua Empresa",
-      subtitle: "Corporativo",
-      description: "Gestão de riscos inteligente para blindar seu patrimônio e operação.",
-      icon: Building,
-      color: "text-primary",
-      bgIcon: "bg-primary",
-      hoverBorder: "hover:border-primary",
-      shadow: "shadow-primary/20",
-      features: [
-        { icon: Factory, text: "Patrimonial" },
-        { icon: Truck, text: "Frota e Cargas" },
-        { icon: Scale, text: "Resp. Civil" },
-        { icon: Monitor, text: "Cyber Risk" },
-        { icon: Briefcase, text: "D&O e E&O" }
-      ]
-    },
-    {
-      id: 2,
-      title: "Seus Eventos",
+      title: "RC Eventos",
       subtitle: "Entretenimento",
-      description: "Segurança líder de mercado, do planejamento à desmontagem.",
+      description: "Protege organizadores contra imprevistos como acidentes, danos materiais e responsabilidades legais, garantindo tranquilidade do início ao fim.",
       icon: Calendar,
       color: "text-accent",
       bgIcon: "bg-accent",
       hoverBorder: "hover:border-accent",
       shadow: "shadow-accent/20",
       features: [
-        { icon: Calendar, text: "Cancelamento" },
-        { icon: Users, text: "Acidentes" },
-        { icon: Monitor, text: "Equipamentos" },
-        { icon: Scale, text: "Resp. Civil" },
-        { icon: HardHat, text: "Montagem" }
+        { icon: Scale, text: "Resp. Civil Eventos" },
+        { icon: Monitor, text: "RD – Equipamentos" },
+        { icon: Users, text: "AP – Acidentes Pessoais" }
+      ]
+    },
+    {
+      id: 2,
+      title: "Sua Empresa",
+      subtitle: "Corporativo",
+      description: "Gestão de risco inteligente para blindar seu patrimônio e operação.",
+      icon: Building,
+      color: "text-primary",
+      bgIcon: "bg-primary",
+      hoverBorder: "hover:border-primary",
+      shadow: "shadow-primary/20",
+      features: [
+        { icon: Truck, text: "Frotas" },
+        { icon: Monitor, text: "Cyber Risk" },
+        { icon: Scale, text: "Responsabilidade Civil Geral" },
+        { icon: Briefcase, text: "D&O e E&O" },
+        { icon: Factory, text: "Patrimonial" }
       ]
     }
   ];

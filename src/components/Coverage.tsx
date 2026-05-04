@@ -2,8 +2,7 @@ import { useState } from "react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { 
-  Shield, Users, Lightbulb, CalendarX, 
-  AlertTriangle, Play, CheckCircle2, ArrowRight 
+  Shield, Users, Lightbulb, Play, CheckCircle2, ArrowRight 
 } from "lucide-react";
 
 import bgImage from "@/assets/coverage-bg.jpg"; 
@@ -15,8 +14,8 @@ const Coverage = () => {
   const coverages = [
     {
       id: 0,
-      title: "Responsabilidade Civil",
-      subtitle: "Proteção Legal",
+      title: "Responsabilidade Civil Eventos",
+      subtitle: "Proteção Financeira",
       icon: Shield,
       color: "text-cyan",
       bg: "bg-cyan",
@@ -25,18 +24,22 @@ const Coverage = () => {
       shadow: "shadow-lg shadow-cyan/10 dark:shadow-cyan/25",
       gradient: "from-cyan/10 to-transparent",
       details: [
-        "RC Organizador e Cruzada",
+        "RC Organizador",
         "RC Instalação e Montagem",
-        "RC Danos Morais e Tumultos",
-        "RC Fornecimento de Bebidas",
-        "RC Guarda de Veículos"
+        "RC Cruzada",
+        "RC Artistas",
+        "RC Fornecimento de Alimentos e Bebidas",
+        "RC Imóvel",
+        "RC Empregador",
+        "Lucros Cessantes",
+        "Danos Morais"
       ],
-      description: "A cobertura mais abrangente do mercado. Protege o organizador contra reclamações e processos de terceiros."
+      description: "Proteção financeira para o organizador contra reclamações de terceiros."
     },
     {
       id: 1,
       title: "Acidentes Pessoais",
-      subtitle: "Staff e Público",
+      subtitle: "Proteção para Vidas",
       icon: Users,
       color: "text-green-600 dark:text-green-500",
       bg: "bg-green-600 dark:bg-green-500",
@@ -44,37 +47,16 @@ const Coverage = () => {
       shadow: "shadow-lg shadow-green-600/10 dark:shadow-green-500/25",
       gradient: "from-green-500/10 to-transparent",
       details: [
-        "Morte Acidental e Invalidez",
-        "Despesas Médicas (DMH)",
-        "Cobertura para Público",
-        "Cobertura para Staff (24h)",
-        "Adicional de Traslado"
+        "Morte Acidental",
+        "Invalidez Permanente e/ou Parcial por Acidente",
+        "Despesas Médicas Hospitalares e Odontológicas"
       ],
-      description: "Segurança total para todas as vidas envolvidas no evento, garantindo atendimento médico rápido."
+      description: "Proteção para as vidas envolvidas no evento."
     },
     {
       id: 2,
-      title: "Cancelamento & No-Show",
-      subtitle: "Riscos Financeiros",
-      icon: CalendarX,
-      color: "text-red-600 dark:text-red-500",
-      bg: "bg-red-600 dark:bg-red-500",
-      border: "border-red-600 dark:border-red-500",
-      shadow: "shadow-lg shadow-red-600/10 dark:shadow-red-500/25",
-      gradient: "from-red-500/10 to-transparent",
-      details: [
-        "Ausência de Artista (No-Show)",
-        "Condições Climáticas",
-        "Interrupção ou Adiamento",
-        "Problemas no local",
-        "Perdas de despesas"
-      ],
-      description: "Proteção do capital investido. Reembolso das despesas caso o evento não possa ocorrer por força maior."
-    },
-    {
-      id: 3,
-      title: "Bens e Equipamentos",
-      subtitle: "Material Técnico",
+      title: "Riscos Diversos",
+      subtitle: "Danos Materiais",
       icon: Lightbulb,
       color: "text-yellow-600 dark:text-yellow-500",
       bg: "bg-yellow-600 dark:bg-yellow-500",
@@ -82,32 +64,12 @@ const Coverage = () => {
       shadow: "shadow-lg shadow-yellow-600/10 dark:shadow-yellow-500/25",
       gradient: "from-yellow-500/10 to-transparent",
       details: [
-        "Som, Luz e Painéis de LED",
-        "Equipamentos de Filmagem",
-        "Estruturas e Tendas",
-        "Geradores e Transformadores",
-        "Danos Elétricos e Roubo"
+        "Equipamentos para Realização do Evento",
+        "Marquises Temporárias",
+        "Cenografia e Decoração",
+        "Equipamentos em Exposição"
       ],
-      description: "Cobertura 'All Risks' para todo o aparato tecnológico e cenográfico alocado no evento."
-    },
-    {
-      id: 4,
-      title: "Riscos Específicos",
-      subtitle: "Adicionais",
-      icon: AlertTriangle,
-      color: "text-purple-600 dark:text-purple-500",
-      bg: "bg-purple-600 dark:bg-purple-500",
-      border: "border-purple-600 dark:border-purple-500",
-      shadow: "shadow-lg shadow-purple-600/10 dark:shadow-purple-500/25",
-      gradient: "from-purple-500/10 to-transparent",
-      details: [
-        "Danos ao Local (Imóvel)",
-        "Responsabilidade Civil Fogos",
-        "Prêmios e Sorteios",
-        "Objetos em Exposição",
-        "RC Empregador"
-      ],
-      description: "Cláusulas especiais desenhadas para atender as particularidades mais complexas do seu projeto."
+      description: "Proteção contra danos materiais para itens alugados para realização do evento."
     }
   ];
 
@@ -139,8 +101,7 @@ const Coverage = () => {
             <span className="text-xs font-bold uppercase tracking-widest text-cyan-700 dark:text-cyan">Cobertura Técnica</span>
           </div>
           <h2 className="font-display text-3xl md:text-5xl font-bold leading-tight max-w-2xl text-gray-900 dark:text-white">
-            Segurança detalhada <br />
-            <span className="text-gray-500 dark:text-muted-foreground">ponto a ponto.</span>
+            Proteção detalhada.
           </h2>
         </div>
 

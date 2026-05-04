@@ -31,10 +31,11 @@ const Reveal = ({ children, className = "", delay = 0 }: RevealProps) => {
 
 const AboutUs = () => {
   const values = [
-    { icon: Shield, title: "Confiança", description: "Relações transparentes" },
-    { icon: Users, title: "Compromisso", description: "Dedicação total" },
-    { icon: Award, title: "Excelência", description: "Qualidade superior" },
     { icon: Heart, title: "Ética", description: "Integridade nas ações" },
+    { icon: Users, title: "Respeito", description: "Atenção às pessoas" },
+    { icon: Shield, title: "Profissionalismo", description: "Atuação responsável" },
+    { icon: Award, title: "Comprometimento", description: "Dedicação total" },
+    { icon: CheckCircle, title: "Excelência", description: "Qualidade superior" },
   ];
 
   const stats = [
@@ -86,11 +87,11 @@ const AboutUs = () => {
                   <div>
                     <div className="flex items-center gap-2 mb-4">
                       <div className="h-px w-8 bg-cyan"></div>
-                      <span className="text-cyan font-bold tracking-widest text-xs uppercase">Sobre a Corretora</span>
+                      <span className="text-cyan font-bold tracking-widest text-xs uppercase">Sobre a Ayfa Seguros</span>
                     </div>
                     <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground drop-shadow-sm">
                       Mais que seguros,<br />
-                      <span className="text-gradient">Proteção para a vida.</span>
+                      <span className="text-gradient">Cuidado com o que importa.</span>
                     </h2>
                   </div>
                 </Reveal>
@@ -99,9 +100,7 @@ const AboutUs = () => {
                   {/* AJUSTE: Dark Mode agora usa dark:bg-black/30 (mais vidro) */}
                   <div className="relative p-6 -ml-2 rounded-2xl bg-white/60 dark:bg-black/30 backdrop-blur-md border border-white/30 dark:border-white/10 shadow-sm transition-all hover:bg-white/70 dark:hover:bg-black/40">
                     <p className="text-muted-foreground text-lg leading-relaxed border-l-4 border-primary/50 pl-5">
-                      A <strong className="text-primary font-bold">AYFA Seguros</strong> combina tecnologia de ponta e atendimento humanizado. 
-                      Não vendemos apenas apólices; entregamos a certeza de que seu patrimônio, 
-                      sua família e seus negócios estão blindados contra qualquer imprevisto.
+                      A <strong className="text-primary font-bold">Ayfa Seguros</strong>, fundada em 1993, se destaca no mercado de Consultoria de Seguros pela eficiência, qualidade e ética exemplar. Sob a liderança de Fauze Farhat, com mais de 30 anos de experiência, a empresa é reconhecida por sua confiabilidade e pelo atendimento diferenciado. Além de oferecer uma ampla gama de produtos para atender diversas necessidades, a Ayfa Seguros é especialista no produto de RC Eventos, garantindo não apenas a proteção do patrimônio, mas também tranquilidade e comodidade aos clientes em eventos de todos os portes.
                     </p>
                   </div>
                 </Reveal>
@@ -136,7 +135,7 @@ const AboutUs = () => {
                 </div>
                 <h3 className="font-bold text-xl mb-2 text-foreground">Missão</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Oferecer excelência e tranquilidade através de um atendimento transparente.
+                  Proporcionar soluções inovadoras, com um atendimento diferenciado e ágil superando as expectativas e agregando valor aos negócios de nossos clientes.
                 </p>
               </div>
             </Reveal>
@@ -150,7 +149,7 @@ const AboutUs = () => {
                 </div>
                 <h3 className="font-bold text-xl mb-2 text-foreground">Visão</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Ser referência nacional em inovação no mercado de seguros.
+                  Ser referência de mercado em qualidade de atendimento e estar entre as melhores consultorias no mercado de seguros.
                 </p>
               </div>
             </Reveal>
@@ -166,7 +165,7 @@ const AboutUs = () => {
                     </div>
                     Nossos Valores
                   </h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
                     {values.map((value, index) => (
                       <div key={index} className="group/item">
                         <div className="flex flex-col items-center text-center gap-3">

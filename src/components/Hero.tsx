@@ -43,8 +43,7 @@ const Hero = () => {
           
           {/* Subtítulo com peso de fonte maior para contraste sobre imagem */}
           <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-foreground/90 mb-6 md:mb-12 font-medium leading-relaxed animate-fade-in opacity-0 max-w-3xl mx-auto px-2 drop-shadow-sm" style={{animationDelay: '0.5s', animationFillMode: 'forwards'}}>
-            Soluções personalizadas em seguros para você, sua família e seu negócio. 
-            Proteção e tranquilidade com atendimento especializado.
+            Soluções personalizadas em seguros para você, sua família e seu negócio, com atendimento especializado e a segurança de quem cuida de cada detalhe.
           </p>
           
           {/* Botões de Ação */}
