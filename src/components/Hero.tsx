@@ -31,15 +31,9 @@ const Hero = () => {
         <div className="max-w-5xl mx-auto text-center">
           
           {/* Logo */}
-          <div className="flex justify-center items-center mb-6 md:mb-10 animate-fade-in opacity-0" style={{animationDelay: '0.1s', animationFillMode: 'forwards'}}>
-            <img src={logo} alt="Ayfa Seguros" className="h-16 md:h-24 lg:h-32 xl:h-40 drop-shadow-xl" />
+          <div className="flex justify-center items-center mb-8 md:mb-12 animate-fade-in opacity-0" style={{animationDelay: '0.1s', animationFillMode: 'forwards'}}>
+            <img src={logo} alt="Ayfa Seguros" className="h-28 md:h-40 lg:h-52 xl:h-64 drop-shadow-xl" />
           </div>
-          
-          {/* Título Principal */}
-          <h1 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-4 md:mb-6 leading-[1.1] animate-fade-in opacity-0 tracking-tight drop-shadow-sm" style={{animationDelay: '0.3s', animationFillMode: 'forwards'}}>
-            Sua Corretora de Seguros<br />
-            <span className="text-gradient-warm">Proteção Completa</span>
-          </h1>
           
           {/* Subtítulo com peso de fonte maior para contraste sobre imagem */}
           <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-foreground/90 mb-6 md:mb-12 font-medium leading-relaxed animate-fade-in opacity-0 max-w-3xl mx-auto px-2 drop-shadow-sm" style={{animationDelay: '0.5s', animationFillMode: 'forwards'}}>

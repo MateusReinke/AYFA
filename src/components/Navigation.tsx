@@ -29,9 +29,7 @@ const Navigation = () => {
     { label: "Início", id: "hero" },
     { label: "Quem Somos", id: "quem-somos" },
     { label: "Serviços", id: "servicos" },
-    { label: "Cobertura", id: "cobertura" },
     { label: "Clientes", id: "clientes" }, 
-    { label: "FAQ", id: "faq" },
     { label: "Contato", id: "contato" },
   ];
 
@@ -49,7 +47,7 @@ const Navigation = () => {
           
           {/* LADO ESQUERDO */}
           <div className="hidden lg:flex items-center gap-4 xl:gap-6 flex-1 justify-end">
-            {navItems.slice(0, 4).map((item) => (
+            {navItems.slice(0, 3).map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
@@ -82,7 +80,7 @@ const Navigation = () => {
 
           {/* LADO DIREITO */}
           <div className="hidden lg:flex items-center gap-4 xl:gap-6 flex-1 justify-start">
-            {navItems.slice(4).map((item) => (
+            {navItems.slice(3).map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
