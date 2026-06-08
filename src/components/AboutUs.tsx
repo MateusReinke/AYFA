@@ -1,4 +1,4 @@
-import { Target, Eye, Heart, Shield, Users, Award, CheckCircle, Calendar } from "lucide-react";
+import { Target, Eye, Heart, Shield, Users, CheckCircle, Calendar } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 // Import da imagem
@@ -31,11 +31,17 @@ const Reveal = ({ children, className = "", delay = 0 }: RevealProps) => {
 
 const AboutUs = () => {
   const values = [
-    { icon: Heart, title: "Ética", description: "Integridade nas ações" },
-    { icon: Users, title: "Respeito", description: "Atenção às pessoas" },
-    { icon: Shield, title: "Profissionalismo", description: "Atuação responsável" },
-    { icon: Award, title: "Comprometimento", description: "Dedicação total" },
-    { icon: CheckCircle, title: "Excelência", description: "Qualidade superior" },
+    "Ética",
+    "Respeito",
+    "Profissionalismo",
+    "Humildade",
+    "Comprometimento",
+    "Dedicação",
+    "Excelência",
+    "Atitude",
+    "Soluções Eficientes",
+    "Trabalho em Equipe",
+    "Foco nas necessidades do cliente",
   ];
 
   const stats = [
@@ -91,7 +97,7 @@ const AboutUs = () => {
                     </div>
                     <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground drop-shadow-sm">
                       Mais que seguros,<br />
-                      <span className="text-gradient">Cuidado com o que importa.</span>
+                      <span className="text-gradient">Cuidado em cada detalhe</span>
                     </h2>
                   </div>
                 </Reveal>
@@ -99,25 +105,13 @@ const AboutUs = () => {
                 <Reveal delay={200}>
                   {/* AJUSTE: Dark Mode agora usa dark:bg-black/30 (mais vidro) */}
                   <div className="relative p-6 -ml-2 rounded-2xl bg-white/60 dark:bg-black/30 backdrop-blur-md border border-white/30 dark:border-white/10 shadow-sm transition-all hover:bg-white/70 dark:hover:bg-black/40">
-                    <p className="text-muted-foreground text-lg leading-relaxed border-l-4 border-primary/50 pl-5">
+                    <p className="text-left text-muted-foreground text-lg leading-relaxed border-l-4 border-primary/50 pl-5">
                       A <strong className="text-primary font-bold">Ayfa Seguros</strong>, fundada em 1993, se destaca no mercado de Consultoria de Seguros pela eficiência, qualidade e ética exemplar. Sob a liderança de Fauze Farhat, com mais de 30 anos de experiência, a empresa é reconhecida por sua confiabilidade e pelo atendimento diferenciado. Além de oferecer uma ampla gama de produtos para atender diversas necessidades, a Ayfa Seguros é especialista no produto de RC Eventos, garantindo não apenas a proteção do patrimônio, mas também tranquilidade e comodidade aos clientes em eventos de todos os portes.
                     </p>
                   </div>
                 </Reveal>
 
-                <Reveal delay={400}>
-                  <div className="flex flex-wrap gap-4 pt-2">
-                    {/* AJUSTE: Sombras coloridas sutis nos badges */}
-                    <div className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/40 dark:bg-black/40 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-sm shadow-primary/5 hover:border-primary/30 transition-colors">
-                      <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                      <span className="text-sm font-semibold text-foreground">Atendimento Humanizado</span>
-                    </div>
-                    <div className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/40 dark:bg-black/40 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-sm shadow-cyan/5 hover:border-cyan/30 transition-colors">
-                      <CheckCircle className="w-4 h-4 text-cyan" />
-                      <span className="text-sm font-semibold text-foreground">Cobertura Nacional</span>
-                    </div>
-                  </div>
-                </Reveal>
+
 
               </div>
             </div>
@@ -134,7 +128,7 @@ const AboutUs = () => {
                   <Target className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-bold text-xl mb-2 text-foreground">Missão</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-left text-sm text-muted-foreground leading-relaxed">
                   Proporcionar soluções inovadoras, com um atendimento diferenciado e ágil superando as expectativas e agregando valor aos negócios de nossos clientes.
                 </p>
               </div>
@@ -148,7 +142,7 @@ const AboutUs = () => {
                   <Eye className="w-6 h-6 text-cyan" />
                 </div>
                 <h3 className="font-bold text-xl mb-2 text-foreground">Visão</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-left text-sm text-muted-foreground leading-relaxed">
                   Ser referência de mercado em qualidade de atendimento e estar entre as melhores consultorias no mercado de seguros.
                 </p>
               </div>
@@ -165,21 +159,14 @@ const AboutUs = () => {
                     </div>
                     Nossos Valores
                   </h3>
-                  <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-                    {values.map((value, index) => (
-                      <div key={index} className="group/item">
-                        <div className="flex flex-col items-center text-center gap-3">
-                          {/* Ícone com fundo bem leve */}
-                          <div className="p-2.5 w-fit bg-white/40 dark:bg-white/5 rounded-xl shadow-sm border border-white/20 dark:border-white/5 group-hover/item:border-accent/50 group-hover/item:text-accent transition-all duration-300">
-                            <value.icon className="w-5 h-5" />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-sm text-foreground">{value.title}</h4>
-                          </div>
-                        </div>
-                      </div>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-left">
+                    {values.map((value) => (
+                      <li key={value} className="flex items-start gap-3 rounded-xl bg-background/70 border border-border/70 px-4 py-3 text-sm font-semibold text-foreground shadow-sm transition-all duration-300 hover:border-accent/40 hover:bg-background">
+                        <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                        <span>{value}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </Reveal>
             </div>

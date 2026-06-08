@@ -30,7 +30,7 @@ const ContactForm = () => {
       `Mensagem:\n${formData.message}`
     );
     
-    window.location.href = `mailto:eventos@ayfa.com.br?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:atendimento@ayfa.com.br?subject=${subject}&body=${body}`;
     
     toast({
       title: "Formulário enviado!",
@@ -146,12 +146,8 @@ const ContactForm = () => {
                   <div>
                     <h3 className="font-bold text-card-foreground mb-2 md:mb-4 text-lg md:text-xl">Email</h3>
                     <p className="text-muted-foreground mb-1 md:mb-2 text-sm md:text-base font-medium">Contato Geral:</p>
-                    <a href="mailto:eventos@ayfa.com.br" className="text-cyan hover:text-primary transition-colors text-base md:text-lg font-semibold">
-                      eventos@ayfa.com.br
-                    </a>
-                    <p className="text-muted-foreground mt-3 md:mt-4 mb-1 md:mb-2 text-sm md:text-base font-medium">Marcela Gorgone - Gerente:</p>
-                    <a href="mailto:marcela@ayfa.com.br" className="text-cyan hover:text-primary transition-colors text-base md:text-lg font-semibold">
-                      marcela@ayfa.com.br
+                    <a href="mailto:atendimento@ayfa.com.br" className="text-cyan hover:text-primary transition-colors text-base md:text-lg font-semibold">
+                      atendimento@ayfa.com.br
                     </a>
                   </div>
                 </div>
@@ -170,10 +166,12 @@ const ContactForm = () => {
                     <a href="tel:+551130681200" className="text-accent hover:text-primary transition-colors text-xl md:text-2xl font-bold block mb-2 md:mb-3">
                       (11) 3068-1200
                     </a>
-                    <p className="text-muted-foreground text-sm md:text-base font-medium leading-relaxed">
-                      Segunda a Sexta<br />
-                      das 9h às 18h
-                    </p>
+                    <div className="space-y-2 text-muted-foreground text-sm md:text-base font-medium leading-relaxed">
+                      <p>WhatsApp Auto/Empresarial: (11)</p>
+                      <p>WhatsApp Eventos: (11)</p>
+                      <p>WhatsApp Benefícios: (11)</p>
+                      <p className="pt-2">Segunda a Sexta<br />das 9h às 18h</p>
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -189,8 +187,8 @@ const ContactForm = () => {
                   <div>
                     <h3 className="font-bold text-card-foreground mb-2 md:mb-4 text-lg md:text-xl">Localização</h3>
                     <p className="text-muted-foreground text-sm md:text-base font-medium leading-relaxed">
-                      São Paulo - SP<br />
-                      Atendimento em todo Brasil
+                      R. Teixeira da Silva, 660 – CJ 71<br />
+                      Paraíso / SP
                     </p>
                   </div>
                 </div>

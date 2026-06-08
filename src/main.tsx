@@ -4,7 +4,7 @@ import App from "./App.tsx";
 import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
-  <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} storageKey="ayfa-theme">
+  <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} storageKey="ayfa-theme">
     <App />
   </ThemeProvider>
 );
