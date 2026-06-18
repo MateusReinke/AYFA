@@ -24,7 +24,7 @@ const Clients = () => {
   return (
     <section 
       id="clientes" 
-      className="py-20 md:py-32 relative overflow-hidden bg-background" 
+      className="py-16 md:py-24 lg:py-28 relative overflow-hidden bg-background" 
       ref={ref}
     >
       {/* BACKGROUND SUTIL */}
@@ -40,7 +40,7 @@ const Clients = () => {
       <div className="container px-4 md:px-6 relative z-10">
         
         {/* HEADER */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-secondary/50 border border-border/50 backdrop-blur-sm">
             <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Confiança</span>
           </div>
@@ -55,12 +55,12 @@ const Clients = () => {
         {/* GRID DE LOGOS */}
         {clientImages.length > 0 ? (
           <div 
-            className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16 items-center justify-items-center transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            className={`grid grid-cols-1 min-[420px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8 items-stretch transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
             {clientImages.map((logo, index) => (
               <div 
                 key={index}
-                className="group relative flex aspect-[5/2] w-36 sm:w-44 md:w-52 lg:w-56 items-center justify-center p-4 transition-all duration-500 hover:scale-105 cursor-default"
+                className="group relative flex min-h-32 w-full items-center justify-center rounded-2xl border border-border/70 bg-card/85 px-6 py-8 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:scale-[1.02] hover:border-primary/30 hover:bg-card hover:shadow-elegant cursor-default"
               >
                 {/* TRUQUE DE CSS PARA LOGOS PERFEITOS:
                    1. opacity-60: Deixa o logo sutil inicialmente.
@@ -72,11 +72,11 @@ const Clients = () => {
                   src={logo.src} 
                   alt={logo.name}
                   className={`
-                    h-full max-h-16 w-full object-contain relative z-10 
+                    h-20 max-h-24 w-full object-contain relative z-10 sm:h-24 md:h-28 
                     transition-all duration-300
                     
                     /* ESTADO NORMAL (TEMA CLARO) */
-                    opacity-50 grayscale
+                    opacity-85 grayscale contrast-125
                     
                     /* ESTADO NORMAL (TEMA ESCURO - A MÁGICA ACONTECE AQUI) */
                     dark:brightness-0 dark:invert 

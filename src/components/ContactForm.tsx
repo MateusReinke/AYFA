@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const ContactForm = () => {
@@ -166,10 +166,19 @@ const ContactForm = () => {
                     <a href="tel:+551130681200" className="text-accent hover:text-primary transition-colors text-xl md:text-2xl font-bold block mb-2 md:mb-3">
                       (11) 3068-1200
                     </a>
-                    <div className="space-y-2 text-muted-foreground text-sm md:text-base font-medium leading-relaxed">
-                      <p>WhatsApp Auto/Empresarial: (11)</p>
-                      <p>WhatsApp Eventos: (11)</p>
-                      <p>WhatsApp Benefícios: (11)</p>
+                    <div className="space-y-3 text-muted-foreground text-sm md:text-base font-medium leading-relaxed">
+                      <a href="https://wa.me/5511972761165" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 hover:text-[#25D366] transition-colors">
+                        <MessageCircle className="mt-0.5 h-4 w-4 flex-shrink-0" />
+                        <span>WhatsApp Auto/Empresarial: <strong className="text-card-foreground">(11) 97276-1165</strong></span>
+                      </a>
+                      <a href="https://wa.me/5511972869455" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 hover:text-[#25D366] transition-colors">
+                        <MessageCircle className="mt-0.5 h-4 w-4 flex-shrink-0" />
+                        <span>WhatsApp Eventos: <strong className="text-card-foreground">(11) 97286-9455</strong></span>
+                      </a>
+                      <a href="https://wa.me/551143441814" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 hover:text-[#25D366] transition-colors">
+                        <MessageCircle className="mt-0.5 h-4 w-4 flex-shrink-0" />
+                        <span>WhatsApp Benefícios: <strong className="text-card-foreground">(11) 4344-1814</strong></span>
+                      </a>
                       <p className="pt-2">Segunda a Sexta<br />das 9h às 18h</p>
                     </div>
                   </div>
