@@ -18,13 +18,32 @@ const clientImages = Object.entries(clientModules)
     name: path.split('/').pop()?.replace(/\.[^/.]+$/, '') || 'client'
   }));
 
+
+const getLogoPresentationClass = (name: string) => {
+  const normalizedName = name.toLowerCase();
+
+  if (normalizedName.includes('casulo')) {
+    return 'scale-[2.45]';
+  }
+
+  if (normalizedName.includes('plenum')) {
+    return 'scale-[2.15]';
+  }
+
+  if (normalizedName.includes('ydgl') || normalizedName.includes('ydream')) {
+    return 'scale-[1.35]';
+  }
+
+  return 'scale-110';
+};
+
 const Clients = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
     <section 
       id="clientes" 
-      className="py-20 md:py-32 relative overflow-hidden bg-background" 
+      className="py-16 md:py-24 lg:py-28 relative overflow-hidden bg-background" 
       ref={ref}
     >
       {/* BACKGROUND SUTIL */}
@@ -40,7 +59,7 @@ const Clients = () => {
       <div className="container px-4 md:px-6 relative z-10">
         
         {/* HEADER */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-secondary/50 border border-border/50 backdrop-blur-sm">
             <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Confiança</span>
           </div>
@@ -55,12 +74,12 @@ const Clients = () => {
         {/* GRID DE LOGOS */}
         {clientImages.length > 0 ? (
           <div 
-            className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16 items-center justify-items-center transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            className={`grid grid-cols-1 min-[420px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8 items-stretch transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
             {clientImages.map((logo, index) => (
               <div 
                 key={index}
-                className="group relative flex aspect-[5/2] w-36 sm:w-44 md:w-52 lg:w-56 items-center justify-center p-4 transition-all duration-500 hover:scale-105 cursor-default"
+                className="group relative flex min-h-32 w-full items-center justify-center overflow-hidden rounded-2xl border border-border/70 bg-white/95 px-6 py-8 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:scale-[1.02] hover:border-primary/30 hover:bg-card hover:shadow-elegant dark:bg-card/90 cursor-default"
               >
                 {/* TRUQUE DE CSS PARA LOGOS PERFEITOS:
                    1. opacity-60: Deixa o logo sutil inicialmente.
@@ -72,19 +91,20 @@ const Clients = () => {
                   src={logo.src} 
                   alt={logo.name}
                   className={`
-                    h-full max-h-16 w-full object-contain relative z-10 
+                    h-24 max-h-28 w-full object-contain relative z-10 sm:h-28 md:h-32
                     transition-all duration-300
+                    ${getLogoPresentationClass(logo.name)}
                     
-                    /* ESTADO NORMAL (TEMA CLARO) */
-                    opacity-50 grayscale
+                    /* ESTADO NORMAL (TEMA CLARO): força contraste para logos claros e com baixa leitura. */
+                    opacity-80 grayscale brightness-0
                     
-                    /* ESTADO NORMAL (TEMA ESCURO - A MÁGICA ACONTECE AQUI) */
-                    dark:brightness-0 dark:invert 
+                    /* ESTADO NORMAL (TEMA ESCURO): mantém o logo claro no fundo escuro. */
+                    dark:brightness-0 dark:invert
 
-                    /* HOVER (Recupera visibilidade total) */
-                    group-hover:opacity-100 
-                    /* Se quiser cor no hover, remova o grayscale abaixo, mas no escuro pode ficar ruim */
-                    group-hover:grayscale-0 
+                    /* HOVER: Recupera a marca original quando houver interação. */
+                    group-hover:opacity-100
+                    group-hover:grayscale-0
+                    group-hover:brightness-100
                     group-hover:dark:invert-0 group-hover:dark:brightness-100
                   `}
                 />
