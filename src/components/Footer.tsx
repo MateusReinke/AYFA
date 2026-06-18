@@ -37,8 +37,18 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="tel:+551130681200" className="hover:text-accent transition-colors font-semibold text-lg md:text-xl text-card-foreground">
-                  (11) 3068-1200
+                <a href="https://wa.me/5511972761165" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">
+                  WhatsApp Auto/Empresarial: (11) 97276-1165
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/5511972869455" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">
+                  WhatsApp Eventos: (11) 97286-9455
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/551143441814" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">
+                  WhatsApp Benefícios: (11) 4344-1814
                 </a>
               </li>
             </ul>
