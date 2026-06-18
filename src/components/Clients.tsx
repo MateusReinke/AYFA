@@ -55,12 +55,12 @@ const Clients = () => {
         {/* GRID DE LOGOS */}
         {clientImages.length > 0 ? (
           <div 
-            className={`flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16 items-center justify-items-center transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
             {clientImages.map((logo, index) => (
               <div 
                 key={index}
-                className="group relative p-4 flex items-center justify-center transition-all duration-500 hover:scale-110 cursor-default"
+                className="group relative flex aspect-[5/2] w-36 sm:w-44 md:w-52 lg:w-56 items-center justify-center p-4 transition-all duration-500 hover:scale-105 cursor-default"
               >
                 {/* TRUQUE DE CSS PARA LOGOS PERFEITOS:
                    1. opacity-60: Deixa o logo sutil inicialmente.
@@ -72,7 +72,7 @@ const Clients = () => {
                   src={logo.src} 
                   alt={logo.name}
                   className={`
-                    h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain relative z-10 
+                    h-full max-h-16 w-full object-contain relative z-10 
                     transition-all duration-300
                     
                     /* ESTADO NORMAL (TEMA CLARO) */
