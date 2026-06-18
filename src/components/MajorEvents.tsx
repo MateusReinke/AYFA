@@ -55,12 +55,12 @@ const Portfolio = () => {
         {/* GRID DE LOGOS */}
         {clientImages.length > 0 ? (
           <div 
-            className={`flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16 items-center justify-items-center transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
             {clientImages.map((logo, index) => (
               <div 
                 key={index}
-                className="group relative grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500 hover:scale-110 cursor-default p-4"
+                className="group relative flex aspect-[5/2] w-36 sm:w-44 md:w-52 lg:w-56 items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500 hover:scale-105 cursor-default p-4"
               >
                 {/* Efeito de brilho atrás do logo no hover */}
                 <div className="absolute inset-0 bg-primary/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -68,7 +68,7 @@ const Portfolio = () => {
                 <img 
                   src={logo.src} 
                   alt={logo.name}
-                  className="h-10 sm:h-12 md:h-16 lg:h-20 w-auto object-contain relative z-10 filter drop-shadow-sm group-hover:drop-shadow-lg transition-all"
+                  className="h-full max-h-16 w-full object-contain relative z-10 filter drop-shadow-sm group-hover:drop-shadow-lg transition-all"
                 />
               </div>
             ))}
