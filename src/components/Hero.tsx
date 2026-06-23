@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { FileText } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
 import logo from "@/assets/ayfa-logo.png";
+
+const eventPresentationPdf = "/APRESENTAÇÃO SEGURO EVENTOS ATUAL - SITE.pdf";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -56,6 +59,22 @@ const Hero = () => {
               onClick={() => document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Conheça Nossos Serviços
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="bg-white/40 hover:bg-white/60 dark:bg-foreground/5 dark:hover:bg-foreground/10 text-foreground border-2 border-foreground/20 hover:border-foreground/40 font-semibold px-5 md:px-10 py-4 md:py-7 text-sm md:text-lg transition-all duration-300 w-full sm:w-auto backdrop-blur-sm"
+            >
+              <a
+                href={eventPresentationPdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir apresentação do Seguro Eventos em PDF em uma nova guia"
+              >
+                Apresentação Seguro Eventos
+                <FileText className="ml-2 h-5 w-5" />
+              </a>
             </Button>
           </div>
 
