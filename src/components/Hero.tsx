@@ -3,7 +3,7 @@ import { FileText } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
 import logo from "@/assets/ayfa-logo.png";
 
-const eventPresentationPdf = "/APRESENTA%C3%87%C3%83O%20SEGURO%20EVENTOS%20ATUAL%20-%20SITE.pdf";
+const eventPresentationPdf = "/apresentacao_seguro_eventos__atual.pdf";
 
 const Hero = () => {
   const scrollToContact = () => {
