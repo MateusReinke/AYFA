@@ -44,7 +44,7 @@ type Service = {
   presentationPdf?: string;
 };
 
-const eventPresentationPdf = "/APRESENTAÇÃO SEGURO EVENTOS ATUAL - SITE.pdf";
+const eventPresentationPdf = "/APRESENTA%C3%87%C3%83O%20SEGURO%20EVENTOS%20ATUAL%20-%20SITE.pdf";
 
 const services: Service[] = [
   {
