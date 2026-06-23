@@ -41,7 +41,10 @@ type Service = {
   border: string;
   shadow: string;
   features: Feature[];
+  presentationPdf?: string;
 };
+
+const eventPresentationPdf = "/APRESENTAÇÃO SEGURO EVENTOS ATUAL - SITE.pdf";
 
 const services: Service[] = [
   {
@@ -97,6 +100,7 @@ const services: Service[] = [
     bgIcon: "bg-accent",
     border: "hover:border-accent/60",
     shadow: "shadow-accent/20",
+    presentationPdf: eventPresentationPdf,
     features: [
       {
         icon: Scale,
@@ -257,16 +261,37 @@ const Services = () => {
                     </div>
 
                     <div className="pt-6 mt-4 border-t border-border w-full">
-                      <Button
-                        className={`w-full sm:w-auto h-14 px-8 text-lg font-bold shadow-lg hover:scale-[1.02] transition-all text-white border-0 ${service.bgIcon}`}
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          scrollToContact();
-                        }}
-                      >
-                        Solicitar Cotação
-                        <ArrowRight className="ml-2 w-5 h-5" />
-                      </Button>
+                      <div className="flex flex-col sm:flex-row gap-3">
+                        <Button
+                          className={`w-full sm:w-auto h-14 px-8 text-lg font-bold shadow-lg hover:scale-[1.02] transition-all text-white border-0 ${service.bgIcon}`}
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            scrollToContact();
+                          }}
+                        >
+                          Solicitar Cotação
+                          <ArrowRight className="ml-2 w-5 h-5" />
+                        </Button>
+
+                        {service.presentationPdf && (
+                          <Button
+                            asChild
+                            variant="outline"
+                            className="w-full sm:w-auto h-14 px-8 text-lg font-bold bg-background/80 hover:bg-background border-border shadow-lg hover:scale-[1.02] transition-all"
+                            onClick={(event) => event.stopPropagation()}
+                          >
+                            <a
+                              href={service.presentationPdf}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="Abrir apresentação do Seguro Eventos em PDF em uma nova guia"
+                            >
+                              Apresentação PDF
+                              <FileText className="ml-2 w-5 h-5" />
+                            </a>
+                          </Button>
+                        )}
+                      </div>
                     </div>
                   </div>
 
