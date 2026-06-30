@@ -31,17 +31,14 @@ const Reveal = ({ children, className = "", delay = 0 }: RevealProps) => {
 
 const AboutUs = () => {
   const values = [
-    "Ética",
-    "Respeito",
-    "Profissionalismo",
-    "Humildade",
-    "Comprometimento",
-    "Dedicação",
-    "Excelência",
-    "Atitude",
-    "Soluções Eficientes",
-    "Trabalho em Equipe",
-    "Foco nas necessidades do cliente",
+    "Ética e respeito.",
+    "Humildade.",
+    "Profissionalismo.",
+    "Atitude.",
+    "Comprometimento e dedicação.",
+    "Foco nas necessidades do cliente.",
+    "Trabalho em equipe e Cooperação.",
+    "Soluções eficientes",
   ];
 
   const stats = [

@@ -29,7 +29,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-display text-lg md:text-xl lg:text-2xl font-bold mb-4 md:mb-6 text-card-foreground">Contato</h3>
+            <h3 className="font-display text-lg md:text-xl lg:text-2xl font-bold mb-4 md:mb-6 text-card-foreground">Contatos</h3>
             <ul className="space-y-2 md:space-y-3 text-muted-foreground text-sm md:text-base">
               <li>
                 <a href="mailto:atendimento@ayfa.com.br" className="hover:text-primary transition-colors">

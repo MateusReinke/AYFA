@@ -219,12 +219,10 @@ const Services = () => {
                   </div>
 
                   {!isActive && (
-                    <div className="hidden lg:flex flex-1 items-center justify-center relative overflow-hidden">
-                      <div className="rotate-90 origin-center absolute whitespace-nowrap">
-                        <h3 className="text-3xl font-bold text-foreground/60 tracking-tight group-hover:text-foreground transition-colors duration-300">
-                          {service.title}
-                        </h3>
-                      </div>
+                    <div className="hidden lg:flex flex-1 items-center justify-center px-2 text-center">
+                      <h3 className="text-2xl xl:text-3xl font-bold text-foreground/60 tracking-tight group-hover:text-foreground transition-colors duration-300 whitespace-normal break-words leading-tight">
+                        {service.title}
+                      </h3>
                     </div>
                   )}
 

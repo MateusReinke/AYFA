@@ -145,7 +145,7 @@ const ContactForm = () => {
                   </div>
                   <div>
                     <h3 className="font-bold text-card-foreground mb-2 md:mb-4 text-lg md:text-xl">Email</h3>
-                    <p className="text-muted-foreground mb-1 md:mb-2 text-sm md:text-base font-medium">Contato Geral:</p>
+                    <p className="text-muted-foreground mb-1 md:mb-2 text-sm md:text-base font-medium">Contatos Gerais:</p>
                     <a href="mailto:atendimento@ayfa.com.br" className="text-cyan hover:text-primary transition-colors text-base md:text-lg font-semibold">
                       atendimento@ayfa.com.br
                     </a>
@@ -162,7 +162,7 @@ const ContactForm = () => {
                     <Phone className="w-6 md:w-8 h-6 md:h-8 text-accent-foreground" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-card-foreground mb-2 md:mb-4 text-lg md:text-xl">Telefone</h3>
+                    <h3 className="font-bold text-card-foreground mb-2 md:mb-4 text-lg md:text-xl">Telefones</h3>
                     <a href="tel:+551130681200" className="text-accent hover:text-primary transition-colors text-xl md:text-2xl font-bold block mb-2 md:mb-3">
                       (11) 3068-1200
                     </a>
