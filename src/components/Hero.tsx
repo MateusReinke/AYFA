@@ -52,10 +52,11 @@ const Hero = () => {
     return () => window.clearInterval(intervalId);
   }, []);
 
-  const decorativeTiles = Array.from({ length: 14 }, (_, index) => serviceSlides[index % serviceSlides.length]);
+  const decorativeTiles = Array.from({ length: 30 }, (_, index) => serviceSlides[index % serviceSlides.length]);
 
   return (
     <section id="hero" className="relative overflow-hidden bg-transparent pt-20 text-foreground md:pt-24">
+      <div className="honeycomb-hero-bg absolute inset-0 opacity-70" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(var(--primary)/0.13),transparent_34%),radial-gradient(circle_at_85%_10%,hsl(var(--accent)/0.10),transparent_30%)]" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
       <div className="absolute left-1/2 top-24 h-[520px] w-[520px] -translate-x-1/2 rounded-full border border-white/10 opacity-40" />
@@ -78,15 +79,15 @@ const Hero = () => {
             <div className="relative mx-auto w-full max-w-[760px] lg:mr-0">
               <div className="absolute -inset-8 rounded-[44px] bg-gradient-to-br from-primary/25 via-cyan/10 to-accent/20 blur-3xl" />
               <div className="relative min-h-[560px] overflow-hidden rounded-[3rem] honeycomb-fade sm:min-h-[600px]">
-                <div className="pointer-events-none absolute inset-0 opacity-70">
+                <div className="pointer-events-none absolute inset-0 opacity-80">
                   {decorativeTiles.map((tile, index) => (
                     <div
                       key={`${tile.label}-decor-${index}`}
-                      className="honeycomb-tile absolute h-28 w-28 overflow-hidden opacity-25 blur-[0.2px] sm:h-36 sm:w-36"
+                      className="honeycomb-tile honeycomb-photo-border absolute h-24 w-24 overflow-hidden opacity-30 blur-[0.2px] sm:h-32 sm:w-32"
                       style={{
-                        left: `${(index * 17) % 92}%`,
-                        top: `${(index * 23) % 88}%`,
-                        transform: `translate(-50%, -50%) scale(${0.75 + (index % 4) * 0.12})`,
+                        left: `${(index * 13 + (index % 3) * 7) % 96}%`,
+                        top: `${(index * 19 + (index % 5) * 6) % 92}%`,
+                        transform: `translate(-50%, -50%) scale(${0.62 + (index % 5) * 0.11})`,
                       }}
                     >
                       <img src={tile.image} alt="" aria-hidden="true" className="h-full w-full object-cover grayscale" />
@@ -110,10 +111,10 @@ const Hero = () => {
                       key={slide.label}
                       type="button"
                       onClick={() => setActiveSlide(index)}
-                      className={`group absolute honeycomb-tile isolate -translate-x-1/2 -translate-y-1/2 overflow-hidden text-left shadow-[0_24px_60px_rgba(15,23,42,.18)] transition-all duration-1000 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 ${
+                      className={`group absolute honeycomb-tile honeycomb-photo-border isolate -translate-x-1/2 -translate-y-1/2 overflow-hidden text-left shadow-[0_24px_60px_rgba(15,23,42,.18)] transition-all duration-1000 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 ${
                         isSelected
-                          ? "z-20 h-[320px] w-[320px] scale-105 opacity-100 sm:h-[390px] sm:w-[390px] lg:h-[430px] lg:w-[430px]"
-                          : "z-10 h-[165px] w-[165px] scale-90 opacity-42 grayscale-[35%] hover:scale-95 hover:opacity-75 sm:h-[215px] sm:w-[215px] lg:h-[235px] lg:w-[235px]"
+                          ? "z-20 h-[330px] w-[330px] scale-105 opacity-100 sm:h-[400px] sm:w-[400px] lg:h-[440px] lg:w-[440px]"
+                          : "z-10 h-[155px] w-[155px] scale-90 opacity-48 grayscale-[35%] hover:scale-95 hover:opacity-80 sm:h-[205px] sm:w-[205px] lg:h-[225px] lg:w-[225px]"
                       }`}
                       aria-label={`Mostrar seguros para ${slide.label}`}
                       aria-pressed={isSelected}
@@ -131,12 +132,12 @@ const Hero = () => {
                         style={{ objectPosition: slide.imagePosition }}
                       />
                       <div className={`absolute inset-0 transition-all duration-1000 ${isSelected ? "bg-gradient-to-t from-slate-950/78 via-slate-950/18 to-transparent" : "bg-slate-950/42"}`} />
-                      <div className={`absolute inset-x-0 bottom-0 px-9 pb-11 pt-20 text-white transition-all duration-700 ${isSelected ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"}`}>
-                        <span className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-white/15 backdrop-blur-md">
+                      <div className={`absolute left-1/2 top-[58%] w-[58%] -translate-x-1/2 -translate-y-1/2 text-center text-white transition-all duration-700 sm:top-[60%] ${isSelected ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+                        <span className="mx-auto mb-3 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-white/15 backdrop-blur-md">
                           <SelectorIcon className="h-5 w-5" strokeWidth={1.8} />
                         </span>
-                        <p className="text-[0.7rem] font-bold uppercase tracking-[0.24em] text-white/75">Seguro para</p>
-                        <p className="mt-1 max-w-[12rem] break-words text-3xl font-extrabold leading-tight sm:text-4xl">{slide.label}</p>
+                        <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/80 sm:text-[0.7rem]">Seguro para</p>
+                        <p className="mx-auto mt-1 max-w-[11rem] break-words text-2xl font-extrabold leading-tight drop-shadow-lg sm:max-w-[13rem] sm:text-4xl">{slide.label}</p>
                       </div>
                     </button>
                   );
