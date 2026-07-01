@@ -66,14 +66,14 @@ const Navigation = () => {
           <div 
             className={`hidden lg:flex items-center justify-center transition-all duration-500 overflow-hidden ${
               isScrolled 
-                ? "max-w-[200px] opacity-100 scale-100 px-4" 
+                ? "max-w-[260px] opacity-100 scale-100 px-5" 
                 : "max-w-0 opacity-0 scale-75 px-0"
             }`}
           >
             <img 
               src={logo} 
               alt="Ayfa Seguros" 
-              className="h-10 xl:h-12 cursor-pointer drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" 
+              className="h-14 xl:h-16 cursor-pointer drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" 
               onClick={() => scrollToSection("hero")}
             />
           </div>
@@ -120,7 +120,7 @@ const Navigation = () => {
               <img 
                 src={logo} 
                 alt="Ayfa Seguros" 
-                className="h-8 cursor-pointer" 
+                className="h-11 cursor-pointer" 
                 onClick={() => scrollToSection("hero")}
               />
             </div>
