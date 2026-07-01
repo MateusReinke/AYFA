@@ -35,6 +35,7 @@ type Service = {
   title: string;
   subtitle: string;
   description: string;
+  image: string;
   icon: LucideIcon;
   color: string;
   bgIcon: string;
@@ -52,6 +53,7 @@ const services: Service[] = [
     title: "Para Você",
     subtitle: "Pessoais",
     description: "Proteção completa para você e sua família viverem com tranquilidade.",
+    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&q=85",
     icon: Users,
     color: "text-cyan",
     bgIcon: "bg-cyan",
@@ -72,6 +74,7 @@ const services: Service[] = [
     title: "Sua Empresa",
     subtitle: "Corporativo",
     description: "Gestão de risco inteligente para blindar seu patrimônio, seus benefícios e sua operação.",
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85",
     icon: Building,
     color: "text-primary",
     bgIcon: "bg-primary",
@@ -95,6 +98,7 @@ const services: Service[] = [
     title: "Eventos",
     subtitle: "Entretenimento",
     description: "Proteção para eventos, equipamentos e participantes, com coberturas especializadas para cada operação.",
+    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=85",
     icon: Calendar,
     color: "text-accent",
     bgIcon: "bg-accent",
@@ -176,7 +180,7 @@ const Services = () => {
             Proteção para cada <span className="text-gradient">momento.</span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Passe o mouse sobre uma categoria para ver os produtos. Em telas touch, toque para abrir.
+            Passe o mouse ou toque em uma categoria para visualizar produtos, coberturas e imagens alinhadas a cada solução.
           </p>
         </div>
 
@@ -190,14 +194,23 @@ const Services = () => {
                 onClick={() => setActiveId((current) => (current === service.id ? null : service.id))}
                 onMouseEnter={() => setHoveredId(service.id)}
                 onMouseLeave={() => setHoveredId(null)}
-                className={`relative rounded-3xl border-2 cursor-pointer overflow-hidden transition-all duration-700 ease-out flex flex-col group ${
+                className={`relative rounded-3xl border-2 cursor-pointer overflow-hidden transition-all duration-700 ease-out flex flex-col group shadow-card ${
                   isActive
                     ? `lg:flex-[3] flex-[3] bg-white/95 dark:bg-card/90 border-border/50 shadow-2xl ${service.shadow}`
                     : `lg:flex-1 flex-1 bg-white/30 dark:bg-card/20 backdrop-blur-md border-white/20 dark:border-white/5 ${service.border}`
                 }`}
               >
+                <img
+                  src={service.image}
+                  alt={`Imagem profissional referente a ${service.title}`}
+                  className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
+                    isActive ? "scale-100 opacity-28 dark:opacity-20" : "scale-105 opacity-45 dark:opacity-25 group-hover:scale-100"
+                  }`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-background/88 via-background/72 to-background/96 dark:from-slate-950/72 dark:via-slate-950/76 dark:to-slate-950/95" />
+                <div className={`absolute inset-x-0 top-0 h-1 ${service.bgIcon} opacity-80`} />
                 <service.icon
-                  className={`absolute -right-12 -bottom-12 w-80 h-80 opacity-[0.03] dark:opacity-[0.05] transition-transform duration-700 ${
+                  className={`absolute -right-12 -bottom-12 w-80 h-80 opacity-[0.05] dark:opacity-[0.08] transition-transform duration-700 ${
                     isActive ? "scale-100 rotate-0" : "scale-75 rotate-12"
                   } ${service.color}`}
                 />
