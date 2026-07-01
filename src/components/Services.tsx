@@ -53,7 +53,7 @@ const services: Service[] = [
     title: "Para Você",
     subtitle: "Pessoais",
     description: "Proteção completa para você e sua família viverem com tranquilidade.",
-    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&q=85",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1400&q=88",
     icon: Users,
     color: "text-cyan",
     bgIcon: "bg-cyan",
@@ -74,7 +74,7 @@ const services: Service[] = [
     title: "Sua Empresa",
     subtitle: "Corporativo",
     description: "Gestão de risco inteligente para blindar seu patrimônio, seus benefícios e sua operação.",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85",
+    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=88",
     icon: Building,
     color: "text-primary",
     bgIcon: "bg-primary",
@@ -98,7 +98,7 @@ const services: Service[] = [
     title: "Eventos",
     subtitle: "Entretenimento",
     description: "Proteção para eventos, equipamentos e participantes, com coberturas especializadas para cada operação.",
-    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=85",
+    image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1400&q=88",
     icon: Calendar,
     color: "text-accent",
     bgIcon: "bg-accent",
@@ -204,10 +204,11 @@ const Services = () => {
                   src={service.image}
                   alt={`Imagem profissional referente a ${service.title}`}
                   className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
-                    isActive ? "scale-100 opacity-28 dark:opacity-20" : "scale-105 opacity-45 dark:opacity-25 group-hover:scale-100"
+                    isActive ? "scale-100 opacity-34 dark:opacity-24" : "scale-105 opacity-52 dark:opacity-30 group-hover:scale-100"
                   }`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-background/88 via-background/72 to-background/96 dark:from-slate-950/72 dark:via-slate-950/76 dark:to-slate-950/95" />
+                <div className="absolute inset-0 bg-gradient-to-b from-background/92 via-background/80 to-background/98 dark:from-slate-950/82 dark:via-slate-950/82 dark:to-slate-950/96" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,transparent_0%,rgba(2,6,23,0.12)_48%,rgba(2,6,23,0.28)_100%)] dark:bg-[radial-gradient(circle_at_50%_38%,transparent_0%,rgba(2,6,23,0.34)_46%,rgba(2,6,23,0.72)_100%)]" />
                 <div className={`absolute inset-x-0 top-0 h-1 ${service.bgIcon} opacity-80`} />
                 <service.icon
                   className={`absolute -right-12 -bottom-12 w-80 h-80 opacity-[0.05] dark:opacity-[0.08] transition-transform duration-700 ${
