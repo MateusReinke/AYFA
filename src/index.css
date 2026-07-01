@@ -255,6 +255,11 @@
     clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%);
   }
 
+  .honeycomb-fade {
+    mask-image: radial-gradient(ellipse at center, #000 42%, rgb(0 0 0 / 0.78) 62%, transparent 88%);
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 42%, rgb(0 0 0 / 0.78) 62%, transparent 88%);
+  }
+
   .premium-card {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,.06);
