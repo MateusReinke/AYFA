@@ -1,37 +1,40 @@
 import { useEffect, useState } from "react";
-import { CalendarCheck, ClipboardCheck, FileText, HeartHandshake, ShieldCheck, Users } from "lucide-react";
+import { Building2, CalendarCheck, Car, HeartHandshake, Home, Users } from "lucide-react";
 import logo from "@/assets/ayfa-logo.png";
 
 const serviceSlides = [
   {
     label: "Pessoas",
-    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=2200&q=90",
+    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=80&fm=webp",
     imagePosition: "center",
   },
   {
     label: "Empresas",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2200&q=90",
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80&fm=webp",
     imagePosition: "center",
   },
   {
     label: "Veículos",
-    image: "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=2200&q=90",
+    image: "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1000&q=80&fm=webp",
     imagePosition: "center",
   },
   {
     label: "Patrimônio",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=2200&q=90",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=80&fm=webp",
     imagePosition: "center",
   },
   {
     label: "Eventos",
-    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=2200&q=90",
+    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1000&q=80&fm=webp",
     imagePosition: "center",
   },
 ];
 
+const icons = [HeartHandshake, Building2, Car, Home, CalendarCheck];
+
 const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isTextVisible, setIsTextVisible] = useState(true);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -41,76 +44,75 @@ const Hero = () => {
     return () => window.clearInterval(intervalId);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+  useEffect(() => {
+    setIsTextVisible(false);
+    const timeoutId = window.setTimeout(() => setIsTextVisible(true), 40);
+    return () => window.clearTimeout(timeoutId);
+  }, [activeSlide]);
 
   return (
-    <section id="hero" className="relative min-h-screen overflow-hidden bg-slate-950 pt-16 text-slate-950 md:pt-20">
-      <div className="absolute inset-0">
-        {serviceSlides.map((slide, index) => (
-          <img
-            key={slide.label}
-            src={slide.image}
-            alt={`Seguro para ${slide.label}`}
-            className={`absolute inset-0 h-full w-full object-cover transition-all [transition-duration:1800ms] ease-out ${
-              activeSlide === index ? "scale-100 opacity-100" : "scale-110 opacity-0"
-            }`}
-            style={{ objectPosition: slide.imagePosition }}
-          />
-        ))}
-        <div className="absolute inset-0 bg-white/68 backdrop-blur-[1.5px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_22%,rgba(255,255,255,0.84),transparent_30%),radial-gradient(circle_at_18%_48%,rgba(34,211,238,0.28),transparent_24%),radial-gradient(circle_at_80%_35%,rgba(59,130,246,0.22),transparent_26%),linear-gradient(180deg,rgba(248,250,252,0.40)_0%,rgba(226,232,240,0.74)_100%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-slate-200/70 via-slate-100/20 to-transparent" />
-      </div>
+    <section id="hero" className="relative overflow-hidden bg-[#F8FAFC] pt-24 text-slate-950 md:pt-28">
+      <div className="absolute left-[-10%] top-[-18%] h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
+      <div className="absolute right-[-8%] top-20 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
+      <div className="absolute bottom-10 left-[45%] h-52 w-52 rotate-45 rounded-[48px] border border-primary/10 bg-white/30" />
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,.8)_0%,rgba(248,250,252,.3)_45%,rgba(219,234,254,.35)_100%)]" />
 
-      <div className="container relative z-10 flex min-h-[calc(100vh-5rem)] items-center justify-center px-4 py-10 md:px-6">
-        <div className="mx-auto flex w-full max-w-5xl flex-col items-center text-center">
-          <div className="animate-fade-in opacity-0" style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}>
-            <img src={logo} alt="Ayfa Seguros" className="mx-auto h-36 w-auto drop-shadow-[0_18px_28px_rgba(15,23,42,0.18)] sm:h-44 md:h-52" />
+      <div className="container relative z-10 px-6 py-12 sm:py-16 md:px-8 lg:py-20">
+        <div className="grid items-center gap-10 lg:grid-cols-[55fr_45fr] lg:gap-14">
+          <div className={`flex flex-col justify-center transition-opacity duration-200 ${isTextVisible ? "opacity-100" : "opacity-0"}`}>
+            <img src={logo} alt="Ayfa Seguros" className="mb-10 h-28 w-fit drop-shadow-[0_18px_30px_rgba(15,23,42,0.10)] sm:h-36 lg:h-44" />
+            <p className="max-w-3xl text-[2rem] font-extrabold leading-[1.16] tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+              Soluções personalizadas em seguros para você, sua família e seu negócio, com atendimento especializado e a segurança de quem cuida de cada detalhe.
+            </p>
           </div>
 
-          <p className="mt-10 max-w-4xl animate-fade-in text-2xl font-extrabold leading-snug tracking-tight text-slate-900 opacity-0 drop-shadow-sm md:text-3xl" style={{ animationDelay: "0.18s", animationFillMode: "forwards" }}>
-            Soluções personalizadas em seguros para você, sua família e seu negócio, com atendimento especializado e a segurança de quem cuida de cada detalhe.
-          </p>
-
-          <div className="mt-10 flex w-full animate-fade-in flex-col items-center justify-center gap-4 opacity-0 sm:flex-row" style={{ animationDelay: "0.32s", animationFillMode: "forwards" }}>
-            <button onClick={() => scrollToSection("contato")} className="inline-flex h-16 w-full items-center justify-center rounded-2xl bg-gradient-to-r from-primary to-accent px-8 text-lg font-bold text-white shadow-[0_18px_45px_rgba(37,99,235,0.32)] transition hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(37,99,235,0.42)] sm:w-auto sm:min-w-64">
-              Solicitar Cotação
-            </button>
-            <button onClick={() => scrollToSection("servicos")} className="inline-flex h-16 w-full items-center justify-center rounded-2xl border border-white/70 bg-white/58 px-8 text-lg font-bold text-slate-900 shadow-lg backdrop-blur-md transition hover:-translate-y-1 hover:bg-white/78 sm:w-auto sm:min-w-72">
-              Conheça Nossos Serviços
-            </button>
-            <a href="/apresentacao_seguro_eventos__atual.pdf" target="_blank" rel="noreferrer" className="inline-flex h-16 w-full items-center justify-center gap-3 rounded-2xl border border-white/70 bg-white/58 px-8 text-lg font-bold text-slate-900 shadow-lg backdrop-blur-md transition hover:-translate-y-1 hover:bg-white/78 sm:w-auto sm:min-w-80">
-              Apresentação Seguro Eventos <FileText className="h-5 w-5" />
-            </a>
-          </div>
-
-          <div className="mt-16 animate-fade-in opacity-0" style={{ animationDelay: "0.46s", animationFillMode: "forwards" }}>
-            <p className="mb-4 text-base font-bold text-slate-800">Seguros para:</p>
-            <div className="flex flex-wrap justify-center gap-3" aria-label="Selecionar imagem por tipo de seguro">
-              {serviceSlides.map((slide, index) => {
-                const icons = [HeartHandshake, Users, ShieldCheck, ClipboardCheck, CalendarCheck];
-                const SelectorIcon = icons[index];
-                const isSelected = activeSlide === index;
-
-                return (
-                  <button
-                    key={slide.label}
-                    type="button"
-                    onClick={() => setActiveSlide(index)}
-                    className={`inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-bold shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 ${
-                      isSelected ? "bg-white text-primary ring-2 ring-primary/25" : "bg-white/68 text-slate-700 hover:bg-white"
-                    }`}
-                    aria-label={`Mostrar seguros para ${slide.label}`}
-                    aria-pressed={isSelected}
-                  >
-                    <SelectorIcon className="h-4 w-4" />
-                    {slide.label}
-                  </button>
-                );
-              })}
+          <div className="relative mx-auto w-full max-w-[500px] lg:mr-0">
+            <div className="absolute -inset-4 rounded-[32px] bg-gradient-to-br from-primary/15 via-white/30 to-accent/15 blur-xl" />
+            <div className="animate-float-subtle relative h-[320px] overflow-hidden rounded-[24px] bg-white shadow-[0_24px_70px_rgba(15,23,42,.14)] sm:h-[380px] lg:h-[420px]">
+              {serviceSlides.map((slide, index) => (
+                <img
+                  key={slide.label}
+                  src={slide.image}
+                  alt={`Seguro para ${slide.label}`}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  className={`absolute inset-0 h-full w-full object-cover transition-all duration-300 ease-out ${
+                    activeSlide === index ? "scale-100 opacity-100" : "scale-[.98] opacity-0"
+                  }`}
+                  style={{ objectPosition: slide.imagePosition }}
+                />
+              ))}
             </div>
+            <div className="pointer-events-none absolute -bottom-5 left-8 right-8 h-10 rounded-full bg-primary/15 blur-2xl" />
+          </div>
+        </div>
+
+        <div className="mt-12 lg:mt-14">
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.22em] text-slate-600">Seguros para:</p>
+          <div className="scrollbar-none -mx-6 flex gap-3 overflow-x-auto px-6 pb-2 sm:mx-0 sm:flex-wrap sm:px-0" aria-label="Selecionar imagem por tipo de seguro">
+            {serviceSlides.map((slide, index) => {
+              const SelectorIcon = icons[index] || Users;
+              const isSelected = activeSlide === index;
+
+              return (
+                <button
+                  key={slide.label}
+                  type="button"
+                  onClick={() => setActiveSlide(index)}
+                  className={`relative inline-flex h-12 shrink-0 items-center gap-2 overflow-hidden rounded-2xl border px-5 text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 ${
+                    isSelected
+                      ? "border-primary bg-primary text-white shadow-[0_14px_30px_rgba(30,64,175,.22)]"
+                      : "border-slate-200 bg-white/80 text-slate-700 shadow-sm hover:border-primary/30 hover:text-primary hover:shadow-[0_10px_24px_rgba(15,23,42,.08)]"
+                  }`}
+                  aria-label={`Mostrar seguros para ${slide.label}`}
+                  aria-pressed={isSelected}
+                >
+                  <SelectorIcon className="h-4 w-4" strokeWidth={1.8} />
+                  {slide.label}
+                  {isSelected && <span className="absolute inset-x-4 bottom-1 h-0.5 rounded-full bg-white/80" />}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>

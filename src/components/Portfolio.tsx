@@ -1,5 +1,5 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Star, Trophy, Users, Globe } from "lucide-react";
+import { Star, Trophy, Users, Globe, type LucideIcon } from "lucide-react";
 import bgImage from "@/assets/coverage-bg.jpg"; 
 
 const Portfolio = () => {
@@ -23,7 +23,7 @@ const Portfolio = () => {
     "Dream Factory", "Marketing Vision", "Hold", "Attach Live"
   ];
 
-  const renderMarqueeItems = (items: string[], Icon: any, colorClass: string, iconColor: string) => {
+  const renderMarqueeItems = (items: string[], Icon: LucideIcon, colorClass: string, iconColor: string) => {
     const repeatedItems = Array(6).fill(items).flat();
     return repeatedItems.map((item, i) => (
       <div key={i} className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/60 dark:bg-black/40 border border-white/40 dark:border-white/10 backdrop-blur-md shadow-lg shrink-0">

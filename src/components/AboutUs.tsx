@@ -19,8 +19,8 @@ const Reveal = ({ children, className = "", delay = 0 }: RevealProps) => {
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
       className={`transition-all duration-1000 ease-out transform ${
-        isVisible 
-          ? "opacity-100 translate-y-0 scale-100 blur-0" 
+        isVisible
+          ? "opacity-100 translate-y-0 scale-100 blur-0"
           : "opacity-0 translate-y-12 scale-95 blur-sm"
       } ${className}`}
     >
@@ -49,25 +49,25 @@ const AboutUs = () => {
   ];
 
   return (
-    <section 
-      id="quem-somos" 
-      className="min-h-screen flex flex-col pt-32 md:pt-40 pb-20 relative overflow-hidden bg-secondary/5" 
+    <section
+      id="quem-somos"
+      className="min-h-screen flex flex-col py-[50px] md:py-[70px] lg:py-[100px] relative overflow-hidden bg-secondary/5"
     >
       {/* 1. IMAGEM DE FUNDO */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={bgImage} 
-          alt="Background Texture" 
+        <img
+          src={bgImage}
+          alt="Background Texture"
           className="w-full h-full object-cover object-[center_20%] md:object-[80%_center] opacity-60 dark:opacity-40 mix-blend-multiply dark:mix-blend-normal transition-all duration-1000"
         />
-        
+
         {/* Overlay Gradiente */}
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background/90" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/20 to-transparent" />
       </div>
 
       {/* 2. TEXTURA E LUZ AMBIENTE */}
-      <div className="absolute inset-0 z-0 opacity-[0.04] mix-blend-overlay" 
+      <div className="absolute inset-0 z-0 opacity-[0.04] mix-blend-overlay"
            style={{ backgroundImage: 'radial-gradient(currentColor 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
       </div>
 
@@ -75,17 +75,17 @@ const AboutUs = () => {
         <div className="absolute top-[10%] right-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px]" />
         <div className="absolute bottom-[10%] left-[10%] w-[500px] h-[500px] bg-cyan/10 rounded-full blur-[100px]" />
       </div>
-      
+
       <div className="container px-4 md:px-6 relative z-10">
-        
+
         {/* LAYOUT PRINCIPAL */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-16 md:mb-24">
-          
+
           {/* Lado Esquerdo - Texto */}
           <div>
             <div className="relative">
               <div className="space-y-8 relative">
-                
+
                 <Reveal>
                   <div>
                     <div className="flex items-center gap-2 mb-4">
@@ -98,7 +98,7 @@ const AboutUs = () => {
                     </h2>
                   </div>
                 </Reveal>
-                
+
                 <Reveal delay={200}>
                   {/* AJUSTE: Dark Mode agora usa dark:bg-black/30 (mais vidro) */}
                   <div className="relative p-6 -ml-2 rounded-2xl bg-white/60 dark:bg-black/30 backdrop-blur-md border border-white/30 dark:border-white/10 shadow-sm transition-all hover:bg-white/70 dark:hover:bg-black/40">
@@ -116,11 +116,11 @@ const AboutUs = () => {
 
           {/* Lado Direito - Bento Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            
+
             {/* Card Missão */}
             <Reveal delay={200}>
               {/* AJUSTE: Sombra Azul Escura (primary) e fundo dark mais leve (black/30) */}
-              <div className="bg-white/60 dark:bg-black/30 backdrop-blur-xl border border-white/30 dark:border-white/10 p-6 rounded-2xl group hover:border-primary/40 transition-all duration-500 shadow-lg shadow-primary/10 hover:shadow-primary/30 hover:-translate-y-1 hover:bg-white/70 dark:hover:bg-black/40 h-full">
+              <div className="bg-white/60 dark:bg-black/30 backdrop-blur-xl border border-white/30 dark:border-white/10 p-6 premium-card rounded-[20px] group hover:border-primary/40 hover:bg-white/70 dark:hover:bg-black/40 h-full">
                 <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-primary/5 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 border border-primary/10">
                   <Target className="w-6 h-6 text-primary" />
                 </div>
@@ -134,7 +134,7 @@ const AboutUs = () => {
             {/* Card Visão */}
             <Reveal delay={400}>
               {/* AJUSTE: Sombra Ciano e fundo dark mais leve (black/30) */}
-              <div className="bg-white/60 dark:bg-black/30 backdrop-blur-xl border border-white/30 dark:border-white/10 p-6 rounded-2xl group hover:border-cyan/40 transition-all duration-500 shadow-lg shadow-cyan/10 hover:shadow-cyan/30 hover:-translate-y-1 hover:bg-white/70 dark:hover:bg-black/40 h-full">
+              <div className="bg-white/60 dark:bg-black/30 backdrop-blur-xl border border-white/30 dark:border-white/10 p-6 premium-card rounded-[20px] group hover:border-cyan/40 hover:bg-white/70 dark:hover:bg-black/40 h-full">
                 <div className="w-12 h-12 bg-gradient-to-br from-cyan/20 to-cyan/5 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 border border-cyan/10">
                   <Eye className="w-6 h-6 text-cyan" />
                 </div>
@@ -149,10 +149,10 @@ const AboutUs = () => {
             <div className="col-span-1 md:col-span-2">
               <Reveal delay={600}>
                 {/* AJUSTE: Sombra Accent (Azul Royal) e Gradiente Dark Transparente */}
-                <div className="bg-gradient-to-br from-white/60 to-white/30 dark:from-black/40 dark:to-black/10 backdrop-blur-xl border border-white/30 dark:border-white/10 p-8 rounded-2xl shadow-xl shadow-accent/10 transition-all duration-500 hover:shadow-accent/25 hover:border-accent/30 hover:from-white/70 hover:to-white/40 dark:hover:from-black/50 dark:hover:to-black/20">
+                <div className="bg-gradient-to-br from-white/60 to-white/30 dark:from-black/40 dark:to-black/10 backdrop-blur-xl border border-white/30 dark:border-white/10 p-8 premium-card rounded-[20px] hover:border-accent/30 hover:from-white/70 hover:to-white/40 dark:hover:from-black/50 dark:hover:to-black/20">
                   <h3 className="font-bold text-xl mb-8 text-foreground flex items-center justify-center gap-3">
                     <div className="p-1.5 bg-accent/10 rounded-lg">
-                      <Heart className="w-5 h-5 text-accent fill-accent/20" /> 
+                      <Heart className="w-5 h-5 text-accent fill-accent/20" />
                     </div>
                     Nossos Valores
                   </h3>
@@ -175,7 +175,7 @@ const AboutUs = () => {
         <div className="relative">
           <Reveal delay={800}>
             <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-12 opacity-50" />
-            
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
                 <div key={index} className="flex flex-col items-center text-center group cursor-default">
