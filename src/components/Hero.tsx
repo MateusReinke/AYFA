@@ -5,27 +5,27 @@ import logo from "@/assets/ayfa-logo.png";
 const serviceSlides = [
   {
     label: "Pessoas",
-    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=80&fm=webp",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=86&fm=webp",
     imagePosition: "center",
   },
   {
     label: "Empresas",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80&fm=webp",
+    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=86&fm=webp",
     imagePosition: "center",
   },
   {
     label: "Veículos",
-    image: "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1000&q=80&fm=webp",
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=86&fm=webp",
     imagePosition: "center",
   },
   {
     label: "Patrimônio",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=80&fm=webp",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=86&fm=webp",
     imagePosition: "center",
   },
   {
     label: "Eventos",
-    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1000&q=80&fm=webp",
+    image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1200&q=86&fm=webp",
     imagePosition: "center",
   },
 ];
@@ -56,7 +56,7 @@ const Hero = () => {
 
   return (
     <section id="hero" className="relative overflow-hidden bg-transparent pt-20 text-foreground md:pt-24">
-      <div className="honeycomb-hero-bg absolute inset-0 opacity-70" />
+      <div className="honeycomb-hero-bg absolute inset-0 opacity-85" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(var(--primary)/0.13),transparent_34%),radial-gradient(circle_at_85%_10%,hsl(var(--accent)/0.10),transparent_30%)]" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
       <div className="absolute left-1/2 top-24 h-[520px] w-[520px] -translate-x-1/2 rounded-full border border-white/10 opacity-40" />
@@ -83,7 +83,7 @@ const Hero = () => {
                   {decorativeTiles.map((tile, index) => (
                     <div
                       key={`${tile.label}-decor-${index}`}
-                      className="honeycomb-tile honeycomb-photo-border absolute h-24 w-24 overflow-hidden opacity-30 blur-[0.2px] sm:h-32 sm:w-32"
+                      className="honeycomb-tile honeycomb-photo-border absolute h-24 w-24 overflow-hidden opacity-24 blur-[0.2px] sm:h-32 sm:w-32"
                       style={{
                         left: `${(index * 13 + (index % 3) * 7) % 96}%`,
                         top: `${(index * 19 + (index % 5) * 6) % 92}%`,
@@ -91,7 +91,7 @@ const Hero = () => {
                       }}
                     >
                       <img src={tile.image} alt="" aria-hidden="true" className="h-full w-full object-cover grayscale" />
-                      <div className="absolute inset-0 bg-primary/35" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/55 via-slate-950/30 to-cyan/35" />
                     </div>
                   ))}
                 </div>
@@ -131,8 +131,8 @@ const Hero = () => {
                         className={`h-full w-full object-cover transition-transform duration-1000 ease-out ${isSelected ? "scale-100" : "scale-110 group-hover:scale-105"}`}
                         style={{ objectPosition: slide.imagePosition }}
                       />
-                      <div className={`absolute inset-0 transition-all duration-1000 ${isSelected ? "bg-gradient-to-t from-slate-950/78 via-slate-950/18 to-transparent" : "bg-slate-950/42"}`} />
-                      <div className={`absolute left-1/2 top-[58%] w-[58%] -translate-x-1/2 -translate-y-1/2 text-center text-white transition-all duration-700 sm:top-[60%] ${isSelected ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+                      <div className={`absolute inset-0 transition-all duration-1000 ${isSelected ? "bg-[radial-gradient(circle_at_center,rgba(15,23,42,0.08)_0%,rgba(15,23,42,0.36)_48%,rgba(15,23,42,0.86)_100%)]" : "bg-slate-950/55"}`} />
+                      <div className={`absolute left-1/2 top-[58%] w-[64%] -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-white/20 bg-slate-950/42 px-5 py-6 text-center text-white shadow-[0_18px_45px_rgba(2,6,23,.35)] backdrop-blur-sm transition-all duration-700 sm:top-[60%] ${isSelected ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                         <span className="mx-auto mb-3 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-white/15 backdrop-blur-md">
                           <SelectorIcon className="h-5 w-5" strokeWidth={1.8} />
                         </span>
