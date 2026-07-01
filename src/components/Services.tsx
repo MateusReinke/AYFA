@@ -53,7 +53,7 @@ const services: Service[] = [
     title: "Para Você",
     subtitle: "Pessoais",
     description: "Proteção completa para você e sua família viverem com tranquilidade.",
-    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&q=85",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1400&q=88",
     icon: Users,
     color: "text-cyan",
     bgIcon: "bg-cyan",
@@ -74,7 +74,7 @@ const services: Service[] = [
     title: "Sua Empresa",
     subtitle: "Corporativo",
     description: "Gestão de risco inteligente para blindar seu patrimônio, seus benefícios e sua operação.",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85",
+    image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=88",
     icon: Building,
     color: "text-primary",
     bgIcon: "bg-primary",
@@ -98,7 +98,7 @@ const services: Service[] = [
     title: "Eventos",
     subtitle: "Entretenimento",
     description: "Proteção para eventos, equipamentos e participantes, com coberturas especializadas para cada operação.",
-    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=85",
+    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=88",
     icon: Calendar,
     color: "text-accent",
     bgIcon: "bg-accent",
@@ -184,7 +184,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className={`flex flex-col lg:flex-row gap-4 w-full min-h-[620px] lg:h-[66vh] lg:max-h-[720px] transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"}`}>
+        <div className={`grid w-full grid-cols-1 gap-5 md:grid-cols-3 lg:min-h-[620px] transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"}`}>
           {services.map((service) => {
             const isActive = hoveredId === service.id || activeId === service.id;
 
@@ -194,20 +194,21 @@ const Services = () => {
                 onClick={() => setActiveId((current) => (current === service.id ? null : service.id))}
                 onMouseEnter={() => setHoveredId(service.id)}
                 onMouseLeave={() => setHoveredId(null)}
-                className={`relative rounded-3xl border-2 cursor-pointer overflow-hidden transition-all duration-700 ease-out flex flex-col group shadow-card ${
+                className={`relative min-h-[520px] rounded-3xl border-2 cursor-pointer overflow-hidden transition-all duration-700 ease-out flex flex-col group shadow-card ${
                   isActive
-                    ? `lg:flex-[3] flex-[3] bg-white/95 dark:bg-card/90 border-border/50 shadow-2xl ${service.shadow}`
-                    : `lg:flex-1 flex-1 bg-white/30 dark:bg-card/20 backdrop-blur-md border-white/20 dark:border-white/5 ${service.border}`
+                    ? `md:col-span-2 bg-white/95 dark:bg-card/90 border-border/50 shadow-2xl ${service.shadow}`
+                    : `bg-white/80 dark:bg-card/70 backdrop-blur-md border-white/50 dark:border-white/10 ${service.border}`
                 }`}
               >
                 <img
                   src={service.image}
                   alt={`Imagem profissional referente a ${service.title}`}
                   className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
-                    isActive ? "scale-100 opacity-28 dark:opacity-20" : "scale-105 opacity-45 dark:opacity-25 group-hover:scale-100"
+                    isActive ? "scale-100 opacity-26 dark:opacity-22" : "scale-105 opacity-22 dark:opacity-18 group-hover:scale-100"
                   }`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-background/88 via-background/72 to-background/96 dark:from-slate-950/72 dark:via-slate-950/76 dark:to-slate-950/95" />
+                <div className="absolute inset-0 bg-gradient-to-b from-background/96 via-background/88 to-background dark:from-slate-950/88 dark:via-slate-950/88 dark:to-slate-950" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,transparent_0%,rgba(2,6,23,0.12)_48%,rgba(2,6,23,0.28)_100%)] dark:bg-[radial-gradient(circle_at_50%_38%,transparent_0%,rgba(2,6,23,0.34)_46%,rgba(2,6,23,0.72)_100%)]" />
                 <div className={`absolute inset-x-0 top-0 h-1 ${service.bgIcon} opacity-80`} />
                 <service.icon
                   className={`absolute -right-12 -bottom-12 w-80 h-80 opacity-[0.05] dark:opacity-[0.08] transition-transform duration-700 ${
@@ -216,13 +217,13 @@ const Services = () => {
                 />
 
                 <div className="absolute inset-0 p-6 md:p-8 flex flex-col h-full w-full">
-                  <div className={`flex items-center gap-4 shrink-0 transition-all duration-500 ${isActive ? "translate-x-0" : "justify-center lg:justify-start"}`}>
+                  <div className={`flex items-center gap-4 shrink-0 rounded-2xl bg-background/82 p-3 shadow-sm ring-1 ring-border/70 backdrop-blur-md transition-all duration-500 dark:bg-slate-950/62 ${isActive ? "translate-x-0" : "justify-center lg:justify-start"}`}>
                     <div className={`rounded-xl flex items-center justify-center shrink-0 transition-all duration-500 shadow-sm ${isActive ? `w-14 h-14 ${service.bgIcon} text-white` : "w-10 h-10 bg-white/40 dark:bg-white/10 text-foreground"}`}>
                       <service.icon className={isActive ? "w-7 h-7" : "w-5 h-5"} />
                     </div>
 
                     <div className="transition-all duration-500">
-                      <p className={`text-xs font-bold uppercase tracking-widest ${isActive ? service.color : "text-muted-foreground group-hover:text-foreground"}`}>
+                      <p className={`text-xs font-bold uppercase tracking-widest ${isActive ? service.color : "text-foreground"}`}>
                         {service.subtitle}
                       </p>
                       <h3 className={`font-bold text-3xl text-foreground whitespace-nowrap leading-none mt-1 transition-all duration-500 ${isActive ? "opacity-100 max-w-full" : "opacity-0 max-w-0 hidden"}`}>
@@ -233,20 +234,20 @@ const Services = () => {
 
                   {!isActive && (
                     <div className="hidden lg:flex flex-1 items-center justify-center px-2 text-center">
-                      <h3 className="text-2xl xl:text-3xl font-bold text-foreground/60 tracking-tight group-hover:text-foreground transition-colors duration-300 whitespace-normal break-words leading-tight">
+                      <h3 className="rounded-2xl bg-background/88 px-5 py-4 text-2xl xl:text-3xl font-bold text-foreground shadow-sm ring-1 ring-border/70 backdrop-blur-md transition-colors duration-300 whitespace-normal break-words leading-tight dark:bg-slate-950/65">
                         {service.title}
                       </h3>
                     </div>
                   )}
 
-                  <div className={`flex-1 flex flex-col mt-6 transition-all duration-500 ${isActive ? "opacity-100 translate-y-0 relative" : "opacity-0 translate-y-4 absolute pointer-events-none"}`}>
-                    <p className="text-left text-foreground/80 text-base md:text-lg mb-6 leading-relaxed max-w-xl font-medium">
+                  <div className={`flex-1 flex flex-col mt-6 rounded-3xl bg-background/78 p-4 shadow-sm ring-1 ring-border/70 backdrop-blur-md transition-all duration-500 dark:bg-slate-950/58 sm:p-5 ${isActive ? "opacity-100 translate-y-0 relative" : "opacity-0 translate-y-4 absolute pointer-events-none"}`}>
+                    <p className="text-left text-foreground text-base md:text-lg mb-6 leading-relaxed max-w-xl font-medium">
                       {service.description}
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-auto w-full overflow-visible">
                       {service.features.map((feature) => (
-                        <div key={feature.text} className="text-sm font-semibold text-foreground group/item p-2 rounded-lg hover:bg-secondary/50 transition-colors">
+                        <div key={feature.text} className="text-sm font-semibold text-foreground group/item rounded-xl bg-background/70 p-3 ring-1 ring-border/60 transition-colors hover:bg-secondary/80 dark:bg-slate-950/42">
                           <div className="flex items-start gap-3">
                             <div className="p-1.5 rounded-full bg-background border border-border group-hover/item:scale-110 transition-transform shadow-sm">
                               <feature.icon className={`w-4 h-4 ${service.color}`} />

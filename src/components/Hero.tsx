@@ -5,41 +5,32 @@ import logo from "@/assets/ayfa-logo.png";
 const serviceSlides = [
   {
     label: "Pessoas",
-    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=80&fm=webp",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=86&fm=webp",
     imagePosition: "center",
   },
   {
     label: "Empresas",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80&fm=webp",
+    image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=88&fm=webp",
     imagePosition: "center",
   },
   {
     label: "Veículos",
-    image: "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1000&q=80&fm=webp",
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=86&fm=webp",
     imagePosition: "center",
   },
   {
     label: "Patrimônio",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=80&fm=webp",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=86&fm=webp",
     imagePosition: "center",
   },
   {
     label: "Eventos",
-    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1000&q=80&fm=webp",
+    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=88&fm=webp",
     imagePosition: "center",
   },
 ];
 
 const icons = [HeartHandshake, Building2, Car, Home, CalendarCheck];
-
-const honeycombSlots = [
-  { left: "18%", top: "18%" },
-  { left: "72%", top: "17%" },
-  { left: "85%", top: "50%" },
-  { left: "65%", top: "82%" },
-  { left: "27%", top: "82%" },
-  { left: "10%", top: "49%" },
-];
 
 const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -52,18 +43,17 @@ const Hero = () => {
     return () => window.clearInterval(intervalId);
   }, []);
 
-  const decorativeTiles = Array.from({ length: 30 }, (_, index) => serviceSlides[index % serviceSlides.length]);
 
   return (
     <section id="hero" className="relative overflow-hidden bg-transparent pt-20 text-foreground md:pt-24">
-      <div className="honeycomb-hero-bg absolute inset-0 opacity-70" />
+      <div className="honeycomb-hero-bg absolute inset-0 opacity-85" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(var(--primary)/0.13),transparent_34%),radial-gradient(circle_at_85%_10%,hsl(var(--accent)/0.10),transparent_30%)]" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
       <div className="absolute left-1/2 top-24 h-[520px] w-[520px] -translate-x-1/2 rounded-full border border-white/10 opacity-40" />
       <div className="absolute inset-0 opacity-[0.045] [background-image:radial-gradient(currentColor_1px,transparent_1px)] [background-size:28px_28px]" />
 
       <div className="container relative z-10 px-6 py-14 md:px-8 lg:py-18 xl:py-20">
-        <div className="grid min-h-[calc(100vh-6rem)] items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 xl:min-h-[700px]">
+        <div className="grid min-h-[calc(100vh-6rem)] items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10 xl:min-h-[700px]">
           <div className="mx-auto flex max-w-2xl flex-col items-center text-center lg:mx-0 lg:items-start lg:text-left">
             <img src={logo} alt="Ayfa Seguros" className="mb-8 h-40 w-fit self-center drop-shadow-[0_22px_40px_rgba(0,0,0,0.16)] sm:h-48 lg:h-56 xl:h-60" />
 
@@ -76,35 +66,13 @@ const Hero = () => {
           </div>
 
           <div className="flex w-full flex-col items-center gap-6 lg:items-stretch">
-            <div className="relative mx-auto w-full max-w-[760px] lg:mr-0">
+            <div className="relative mx-auto w-full max-w-[680px] lg:mr-0">
               <div className="absolute -inset-8 rounded-[44px] bg-gradient-to-br from-primary/25 via-cyan/10 to-accent/20 blur-3xl" />
-              <div className="relative min-h-[560px] overflow-hidden rounded-[3rem] honeycomb-fade sm:min-h-[600px]">
-                <div className="pointer-events-none absolute inset-0 opacity-80">
-                  {decorativeTiles.map((tile, index) => (
-                    <div
-                      key={`${tile.label}-decor-${index}`}
-                      className="honeycomb-tile honeycomb-photo-border absolute h-24 w-24 overflow-hidden opacity-30 blur-[0.2px] sm:h-32 sm:w-32"
-                      style={{
-                        left: `${(index * 13 + (index % 3) * 7) % 96}%`,
-                        top: `${(index * 19 + (index % 5) * 6) % 92}%`,
-                        transform: `translate(-50%, -50%) scale(${0.62 + (index % 5) * 0.11})`,
-                      }}
-                    >
-                      <img src={tile.image} alt="" aria-hidden="true" className="h-full w-full object-cover grayscale" />
-                      <div className="absolute inset-0 bg-primary/35" />
-                    </div>
-                  ))}
-                </div>
-
+              <div className="relative min-h-[360px] overflow-hidden rounded-[2rem] honeycomb-fade sm:min-h-[500px] lg:min-h-[580px]">
                 {serviceSlides.map((slide, index) => {
                   const SelectorIcon = icons[index] || Users;
                   const isSelected = activeSlide === index;
-                  const inactiveSlot = serviceSlides
-                    .filter((_, slideIndex) => slideIndex !== activeSlide)
-                    .findIndex((inactiveSlide) => inactiveSlide.label === slide.label);
-                  const tilePosition = isSelected
-                    ? { left: "50%", top: "50%" }
-                    : honeycombSlots[inactiveSlot % honeycombSlots.length];
+                  const tilePosition = { left: "50%", top: "50%" };
 
                   return (
                     <button
@@ -113,8 +81,8 @@ const Hero = () => {
                       onClick={() => setActiveSlide(index)}
                       className={`group absolute honeycomb-tile honeycomb-photo-border isolate -translate-x-1/2 -translate-y-1/2 overflow-hidden text-left shadow-[0_24px_60px_rgba(15,23,42,.18)] transition-all duration-1000 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 ${
                         isSelected
-                          ? "z-20 h-[330px] w-[330px] scale-105 opacity-100 sm:h-[400px] sm:w-[400px] lg:h-[440px] lg:w-[440px]"
-                          : "z-10 h-[155px] w-[155px] scale-90 opacity-48 grayscale-[35%] hover:scale-95 hover:opacity-80 sm:h-[205px] sm:w-[205px] lg:h-[225px] lg:w-[225px]"
+                          ? "z-20 h-[280px] w-[280px] opacity-100 sm:h-[380px] sm:w-[380px] lg:h-[440px] lg:w-[440px]"
+                          : "pointer-events-none hidden opacity-0"
                       }`}
                       aria-label={`Mostrar seguros para ${slide.label}`}
                       aria-pressed={isSelected}
@@ -131,8 +99,8 @@ const Hero = () => {
                         className={`h-full w-full object-cover transition-transform duration-1000 ease-out ${isSelected ? "scale-100" : "scale-110 group-hover:scale-105"}`}
                         style={{ objectPosition: slide.imagePosition }}
                       />
-                      <div className={`absolute inset-0 transition-all duration-1000 ${isSelected ? "bg-gradient-to-t from-slate-950/78 via-slate-950/18 to-transparent" : "bg-slate-950/42"}`} />
-                      <div className={`absolute left-1/2 top-[58%] w-[58%] -translate-x-1/2 -translate-y-1/2 text-center text-white transition-all duration-700 sm:top-[60%] ${isSelected ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+                      <div className={`absolute inset-0 transition-all duration-1000 ${isSelected ? "bg-gradient-to-t from-slate-950/82 via-slate-950/32 to-slate-950/10" : "bg-slate-950/52"}`} />
+                      <div className={`absolute inset-x-5 bottom-7 rounded-3xl border border-white/20 bg-slate-950/70 px-5 py-5 text-center text-white shadow-[0_18px_45px_rgba(2,6,23,.38)] backdrop-blur-md transition-all duration-700 sm:inset-x-8 sm:bottom-9 ${isSelected ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                         <span className="mx-auto mb-3 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-white/15 backdrop-blur-md">
                           <SelectorIcon className="h-5 w-5" strokeWidth={1.8} />
                         </span>
