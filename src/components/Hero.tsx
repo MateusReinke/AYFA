@@ -10,7 +10,7 @@ const serviceSlides = [
   },
   {
     label: "Empresas",
-    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=86&fm=webp",
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=86&fm=webp",
     imagePosition: "center",
   },
   {
@@ -25,12 +25,23 @@ const serviceSlides = [
   },
   {
     label: "Eventos",
-    image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1200&q=86&fm=webp",
+    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=86&fm=webp",
     imagePosition: "center",
   },
 ];
 
-const decorativeTiles = Array.from({ length: 14 }, (_, index) => serviceSlides[index % serviceSlides.length]);
+const decorativeTiles = [
+  { ...serviceSlides[0], left: 14, top: 18, size: 0.66 },
+  { ...serviceSlides[1], left: 34, top: 14, size: 0.76 },
+  { ...serviceSlides[2], left: 66, top: 14, size: 0.72 },
+  { ...serviceSlides[3], left: 86, top: 20, size: 0.64 },
+  { ...serviceSlides[4], left: 18, top: 47, size: 0.78 },
+  { ...serviceSlides[0], left: 82, top: 47, size: 0.78 },
+  { ...serviceSlides[1], left: 14, top: 78, size: 0.66 },
+  { ...serviceSlides[2], left: 36, top: 84, size: 0.72 },
+  { ...serviceSlides[3], left: 64, top: 84, size: 0.72 },
+  { ...serviceSlides[4], left: 86, top: 78, size: 0.66 },
+];
 
 const icons = [HeartHandshake, Building2, Car, Home, CalendarCheck];
 
@@ -70,16 +81,16 @@ const Hero = () => {
           <div className="flex w-full flex-col items-center gap-6 lg:items-stretch">
             <div className="relative mx-auto w-full max-w-[680px] lg:mr-0">
               <div className="absolute -inset-8 rounded-[44px] bg-gradient-to-br from-primary/25 via-cyan/10 to-accent/20 blur-3xl" />
-              <div className="relative min-h-[560px] overflow-hidden rounded-[3rem] honeycomb-fade sm:min-h-[600px]">
+              <div className="relative min-h-[430px] overflow-hidden rounded-[2rem] honeycomb-fade sm:min-h-[560px] sm:rounded-[3rem] lg:min-h-[600px]">
                 <div className="pointer-events-none absolute inset-0 opacity-80">
                   {decorativeTiles.map((tile, index) => (
                     <div
                       key={`${tile.label}-decor-${index}`}
-                      className="honeycomb-tile honeycomb-photo-border absolute h-24 w-24 overflow-hidden opacity-24 blur-[0.2px] sm:h-32 sm:w-32"
+                      className="honeycomb-tile honeycomb-photo-border absolute h-20 w-20 overflow-hidden opacity-20 blur-[0.2px] sm:h-28 sm:w-28 lg:h-32 lg:w-32"
                       style={{
-                        left: `${(index * 13 + (index % 3) * 7) % 96}%`,
-                        top: `${(index * 19 + (index % 5) * 6) % 92}%`,
-                        transform: `translate(-50%, -50%) scale(${0.62 + (index % 5) * 0.11})`,
+                        left: `${tile.left}%`,
+                        top: `${tile.top}%`,
+                        transform: `translate(-50%, -50%) scale(${tile.size})`,
                       }}
                     >
                       <img src={tile.image} alt="" aria-hidden="true" className="h-full w-full object-cover grayscale" />
@@ -100,7 +111,7 @@ const Hero = () => {
                       onClick={() => setActiveSlide(index)}
                       className={`group absolute honeycomb-tile honeycomb-photo-border isolate -translate-x-1/2 -translate-y-1/2 overflow-hidden text-left shadow-[0_24px_60px_rgba(15,23,42,.18)] transition-all duration-1000 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 ${
                         isSelected
-                          ? "z-20 h-[280px] w-[280px] opacity-100 sm:h-[380px] sm:w-[380px] lg:h-[440px] lg:w-[440px]"
+                          ? "z-20 h-[250px] w-[250px] opacity-100 sm:h-[360px] sm:w-[360px] lg:h-[430px] lg:w-[430px]"
                           : "pointer-events-none hidden opacity-0"
                       }`}
                       aria-label={`Mostrar seguros para ${slide.label}`}
@@ -119,7 +130,7 @@ const Hero = () => {
                         style={{ objectPosition: slide.imagePosition }}
                       />
                       <div className={`absolute inset-0 transition-all duration-1000 ${isSelected ? "bg-[radial-gradient(circle_at_center,rgba(15,23,42,0.08)_0%,rgba(15,23,42,0.36)_48%,rgba(15,23,42,0.86)_100%)]" : "bg-slate-950/55"}`} />
-                      <div className={`absolute left-1/2 top-[58%] w-[64%] -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-white/20 bg-slate-950/42 px-5 py-6 text-center text-white shadow-[0_18px_45px_rgba(2,6,23,.35)] backdrop-blur-sm transition-all duration-700 sm:top-[60%] ${isSelected ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+                      <div className={`absolute left-1/2 top-1/2 w-[68%] -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-white/25 bg-slate-950/58 px-5 py-6 text-center text-white shadow-[0_18px_45px_rgba(2,6,23,.45)] backdrop-blur-md transition-all duration-700 ${isSelected ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                         <span className="mx-auto mb-3 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-white/15 backdrop-blur-md">
                           <SelectorIcon className="h-5 w-5" strokeWidth={1.8} />
                         </span>
