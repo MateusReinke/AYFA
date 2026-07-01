@@ -65,10 +65,10 @@ const Hero = () => {
       <div className="absolute left-1/2 top-24 h-[520px] w-[520px] -translate-x-1/2 rounded-full border border-white/10 opacity-40" />
       <div className="absolute inset-0 opacity-[0.045] [background-image:radial-gradient(currentColor_1px,transparent_1px)] [background-size:28px_28px]" />
 
-      <div className="container relative z-10 px-6 py-14 md:px-8 lg:py-18 xl:py-20">
-        <div className="grid min-h-[calc(100vh-6rem)] items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10 xl:min-h-[700px]">
-          <div className="mx-auto flex max-w-2xl flex-col items-center text-center lg:mx-0 lg:items-start lg:text-left">
-            <img src={logo} alt="Ayfa Seguros" className="mb-8 h-40 w-fit self-center drop-shadow-[0_22px_40px_rgba(0,0,0,0.16)] sm:h-48 lg:h-56 xl:h-60" />
+      <div className="container relative z-10 px-4 py-10 sm:px-6 md:px-8 lg:py-12 xl:py-14">
+        <div className="grid min-h-[calc(100vh-5.5rem)] items-center gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-8 xl:min-h-[680px] 2xl:grid-cols-[0.78fr_1.22fr]">
+          <div className="mx-auto flex max-w-2xl flex-col items-center text-center lg:mx-0 lg:max-w-xl lg:items-start lg:text-left xl:max-w-2xl">
+            <img src={logo} alt="Ayfa Seguros" className="mb-6 h-36 w-fit self-center drop-shadow-[0_22px_40px_rgba(0,0,0,0.16)] sm:h-44 lg:h-52 xl:h-56" />
 
             <h1 className="max-w-[760px] text-balance text-4xl font-extrabold leading-[1.04] tracking-tight text-foreground sm:text-5xl lg:text-[3.8rem]">
               Proteção sob medida para pessoas, empresas e eventos.
@@ -79,14 +79,14 @@ const Hero = () => {
           </div>
 
           <div className="flex w-full flex-col items-center gap-6 lg:items-stretch">
-            <div className="relative mx-auto w-full max-w-[680px] lg:mr-0">
+            <div className="relative mx-auto w-full max-w-[720px] lg:mr-0 xl:max-w-[780px]">
               <div className="absolute -inset-8 rounded-[44px] bg-gradient-to-br from-primary/25 via-cyan/10 to-accent/20 blur-3xl" />
-              <div className="relative min-h-[430px] overflow-hidden rounded-[2rem] honeycomb-fade sm:min-h-[560px] sm:rounded-[3rem] lg:min-h-[600px]">
+              <div className="relative min-h-[390px] overflow-hidden rounded-[2rem] honeycomb-fade sm:min-h-[520px] sm:rounded-[3rem] lg:min-h-[620px] xl:min-h-[660px]">
                 <div className="pointer-events-none absolute inset-0 opacity-80">
                   {decorativeTiles.map((tile, index) => (
                     <div
                       key={`${tile.label}-decor-${index}`}
-                      className="honeycomb-tile honeycomb-photo-border absolute h-20 w-20 overflow-hidden opacity-20 blur-[0.2px] sm:h-28 sm:w-28 lg:h-32 lg:w-32"
+                      className={`honeycomb-tile honeycomb-photo-border absolute h-20 w-20 overflow-hidden opacity-20 blur-[0.2px] sm:h-28 sm:w-28 lg:h-32 lg:w-32 ${activeSlide === index % serviceSlides.length ? "animate-honeycomb-orbit" : ""}`}
                       style={{
                         left: `${tile.left}%`,
                         top: `${tile.top}%`,
@@ -111,7 +111,7 @@ const Hero = () => {
                       onClick={() => setActiveSlide(index)}
                       className={`group absolute honeycomb-tile honeycomb-photo-border isolate -translate-x-1/2 -translate-y-1/2 overflow-hidden text-left shadow-[0_24px_60px_rgba(15,23,42,.18)] transition-all duration-1000 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 ${
                         isSelected
-                          ? "z-20 h-[250px] w-[250px] opacity-100 sm:h-[360px] sm:w-[360px] lg:h-[430px] lg:w-[430px]"
+                          ? "z-20 h-[250px] w-[250px] animate-honeycomb-switch opacity-100 sm:h-[360px] sm:w-[360px] lg:h-[450px] lg:w-[450px] xl:h-[500px] xl:w-[500px]"
                           : "pointer-events-none hidden opacity-0"
                       }`}
                       aria-label={`Mostrar seguros para ${slide.label}`}
@@ -143,7 +143,7 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="w-full max-w-[660px] lg:ml-auto">
+            <div className="w-full max-w-[720px] lg:ml-auto xl:max-w-[780px]">
               <p className="mb-3 text-center text-xs font-bold uppercase tracking-[0.24em] text-muted-foreground lg:text-left">Escolha uma solução</p>
               <div className="scrollbar-none -mx-6 flex gap-3 overflow-x-auto px-6 pb-2 sm:mx-0 sm:flex-wrap sm:justify-center sm:px-0 lg:justify-start" aria-label="Selecionar imagem por tipo de seguro">
                 {serviceSlides.map((slide, index) => {
