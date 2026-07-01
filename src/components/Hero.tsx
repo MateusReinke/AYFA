@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import { Briefcase, Building2, CalendarCheck, Car, Heart, Home, ShieldCheck, Users } from "lucide-react";
+import { Building2, CalendarCheck, ClipboardCheck, HeartHandshake, ShieldCheck, Users } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
-import eventsImage from "@/assets/events-icon.jpg";
-import liabilityImage from "@/assets/liability-icon.jpg";
-import personalImage from "@/assets/personal-icon.jpg";
+import aboutImage from "@/assets/about-bg.jpg";
 import coverageImage from "@/assets/coverage-bg.jpg";
 import logo from "@/assets/ayfa-logo.png";
 
@@ -12,37 +10,41 @@ const serviceSlides = [
     eyebrow: "Seguro para Eventos",
     title: "Proteção para eventos de todos os portes",
     description: "Coberturas especializadas para operação, público, estrutura e responsabilidade civil.",
-    image: eventsImage,
+    image: heroImage,
     icon: CalendarCheck,
+    imagePosition: "center",
   },
   {
     eyebrow: "Responsabilidade Civil",
     title: "Segurança jurídica para sua operação",
     description: "Consultoria para reduzir riscos e preservar patrimônio, reputação e continuidade.",
-    image: liabilityImage,
+    image: coverageImage,
     icon: ShieldCheck,
+    imagePosition: "center",
   },
   {
     eyebrow: "Seguros Pessoais",
     title: "Cuidado para você e sua família",
     description: "Soluções para vida, acidentes pessoais, viagem, automóvel e residência.",
-    image: personalImage,
-    icon: Users,
+    image: aboutImage,
+    icon: HeartHandshake,
+    imagePosition: "65% center",
   },
   {
     eyebrow: "Soluções Empresariais",
     title: "Gestão de riscos para empresas",
     description: "Proteção patrimonial, benefícios, frotas e seguros corporativos sob medida.",
-    image: coverageImage,
+    image: aboutImage,
     icon: Building2,
+    imagePosition: "80% center",
   },
 ];
 
-const quickServices = [
-  { icon: Heart, label: "Vida" },
-  { icon: Car, label: "Auto" },
-  { icon: Home, label: "Residencial" },
-  { icon: Briefcase, label: "Empresarial" },
+const serviceSelectors = [
+  { icon: CalendarCheck, label: "Eventos" },
+  { icon: ClipboardCheck, label: "RC Geral" },
+  { icon: HeartHandshake, label: "Pessoais" },
+  { icon: Building2, label: "Empresarial" },
 ];
 
 const Hero = () => {
@@ -59,7 +61,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen overflow-hidden bg-background pt-16 md:pt-20">
+    <section id="hero" className="relative min-h-screen overflow-hidden bg-background pt-16 md:pt-20 pb-20 lg:pb-24">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_88%,hsl(var(--accent)/0.13),transparent_32%),radial-gradient(circle_at_88%_18%,hsl(var(--cyan)/0.12),transparent_34%)]" />
       <div
         className="absolute inset-y-0 right-0 hidden w-1/2 opacity-10 lg:block"
@@ -94,28 +96,29 @@ const Hero = () => {
             </p>
           </div>
 
-          <div className="mt-8 flex justify-center gap-3 lg:justify-start" aria-label="Selecionar serviço em destaque">
-            {serviceSlides.map((slide, index) => (
-              <button
-                key={slide.eyebrow}
-                type="button"
-                onClick={() => setActiveSlide(index)}
-                className={`h-3 rounded-full transition-all duration-300 ${
-                  activeSlide === index ? "w-10 bg-primary" : "w-3 bg-foreground/25 hover:bg-primary/60"
-                }`}
-                aria-label={`Mostrar ${slide.eyebrow}`}
-                aria-pressed={activeSlide === index}
-              />
-            ))}
-          </div>
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 animate-fade-in opacity-0" style={{ animationDelay: "0.55s", animationFillMode: "forwards" }} aria-label="Selecionar serviço em destaque">
+            {serviceSlides.map((slide, index) => {
+              const SelectorIcon = serviceSelectors[index].icon;
+              const isSelected = activeSlide === index;
 
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 animate-fade-in opacity-0" style={{ animationDelay: "0.55s", animationFillMode: "forwards" }}>
-            {quickServices.map(({ icon: Icon, label }) => (
-              <div key={label} className="rounded-2xl border border-border/70 bg-card/80 px-4 py-4 text-center shadow-card backdrop-blur-sm">
-                <Icon className="mx-auto mb-2 h-5 w-5 text-accent" />
-                <span className="text-sm font-bold text-foreground">{label}</span>
-              </div>
-            ))}
+              return (
+                <button
+                  key={slide.eyebrow}
+                  type="button"
+                  onClick={() => setActiveSlide(index)}
+                  className={`group rounded-2xl border px-4 py-4 text-center shadow-card backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 ${
+                    isSelected
+                      ? "border-primary bg-primary text-primary-foreground shadow-glow"
+                      : "border-border/70 bg-card/85 text-foreground hover:border-primary/40 hover:bg-card"
+                  }`}
+                  aria-label={`Mostrar ${slide.eyebrow}`}
+                  aria-pressed={isSelected}
+                >
+                  <SelectorIcon className={`mx-auto mb-2 h-6 w-6 transition-colors ${isSelected ? "text-primary-foreground" : "text-accent group-hover:text-primary"}`} />
+                  <span className="text-sm font-bold">{serviceSelectors[index].label}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -132,6 +135,7 @@ const Hero = () => {
                 className={`absolute inset-0 h-full w-full object-cover transition-all duration-1000 ${
                   activeSlide === index ? "scale-100 opacity-100" : "scale-105 opacity-0"
                 }`}
+                style={{ objectPosition: slide.imagePosition }}
               />
             ))}
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/75 via-primary/20 to-transparent" />
@@ -151,6 +155,9 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent via-background/80 to-secondary/5" />
+      <div className="pointer-events-none absolute -bottom-16 left-1/2 h-32 w-[120vw] -translate-x-1/2 rounded-[50%] bg-secondary/5 shadow-[0_-30px_80px_hsl(var(--accent)/0.08)]" />
     </section>
   );
 };
