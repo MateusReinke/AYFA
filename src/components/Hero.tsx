@@ -33,14 +33,12 @@ const serviceSlides = [
 const icons = [HeartHandshake, Building2, Car, Home, CalendarCheck];
 
 const honeycombSlots = [
-  "left-[4%] top-[4%]",
-  "left-[32%] top-[1%]",
-  "right-[5%] top-[5%]",
-  "left-[1%] top-[32%]",
-  "right-[1%] top-[34%]",
-  "left-[10%] bottom-[9%]",
-  "left-[39%] bottom-[2%]",
-  "right-[10%] bottom-[10%]",
+  { left: "18%", top: "18%" },
+  { left: "72%", top: "17%" },
+  { left: "85%", top: "50%" },
+  { left: "65%", top: "82%" },
+  { left: "27%", top: "82%" },
+  { left: "10%", top: "49%" },
 ];
 
 const Hero = () => {
@@ -66,7 +64,7 @@ const Hero = () => {
       <div className="container relative z-10 px-6 py-14 md:px-8 lg:py-18 xl:py-20">
         <div className="grid min-h-[calc(100vh-6rem)] items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 xl:min-h-[700px]">
           <div className="mx-auto flex max-w-2xl flex-col items-center text-center lg:mx-0 lg:items-start lg:text-left">
-            <img src={logo} alt="Ayfa Seguros" className="mb-8 h-32 w-fit self-center drop-shadow-[0_22px_40px_rgba(0,0,0,0.16)] sm:h-36 lg:h-44" />
+            <img src={logo} alt="Ayfa Seguros" className="mb-8 h-40 w-fit self-center drop-shadow-[0_22px_40px_rgba(0,0,0,0.16)] sm:h-48 lg:h-56 xl:h-60" />
 
             <h1 className="max-w-[760px] text-balance text-4xl font-extrabold leading-[1.04] tracking-tight text-foreground sm:text-5xl lg:text-[3.8rem]">
               Proteção sob medida para pessoas, empresas e eventos.
@@ -104,21 +102,25 @@ const Hero = () => {
                     .filter((_, slideIndex) => slideIndex !== activeSlide)
                     .findIndex((inactiveSlide) => inactiveSlide.label === slide.label);
                   const tilePosition = isSelected
-                    ? "left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                    : honeycombSlots[inactiveSlot];
+                    ? { left: "50%", top: "50%" }
+                    : honeycombSlots[inactiveSlot % honeycombSlots.length];
 
                   return (
                     <button
                       key={slide.label}
                       type="button"
                       onClick={() => setActiveSlide(index)}
-                      className={`group absolute ${tilePosition} honeycomb-tile isolate overflow-hidden text-left shadow-[0_24px_60px_rgba(15,23,42,.18)] transition-[opacity,transform,filter] duration-1000 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 ${
+                      className={`group absolute honeycomb-tile isolate -translate-x-1/2 -translate-y-1/2 overflow-hidden text-left shadow-[0_24px_60px_rgba(15,23,42,.18)] transition-all duration-1000 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 ${
                         isSelected
                           ? "z-20 h-[320px] w-[320px] scale-105 opacity-100 sm:h-[390px] sm:w-[390px] lg:h-[430px] lg:w-[430px]"
                           : "z-10 h-[165px] w-[165px] scale-90 opacity-42 grayscale-[35%] hover:scale-95 hover:opacity-75 sm:h-[215px] sm:w-[215px] lg:h-[235px] lg:w-[235px]"
                       }`}
                       aria-label={`Mostrar seguros para ${slide.label}`}
                       aria-pressed={isSelected}
+                      style={{
+                        left: tilePosition.left,
+                        top: tilePosition.top,
+                      }}
                     >
                       <img
                         src={slide.image}
