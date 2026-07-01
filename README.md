@@ -44,7 +44,7 @@ docker build -t ayfa-seguros-digital .
 ### Rodar localmente
 
 ```bash
-docker run --rm -p 8080:80 ayfa-seguros-digital
+docker run --rm -p 8080:8080 ayfa-seguros-digital
 ```
 
 Abra: `http://localhost:8080`.
@@ -54,7 +54,12 @@ Abra: `http://localhost:8080`.
 1. No Coolify, escolha **New Resource > Application**.
 2. Conecte o repositório Git deste projeto.
 3. Em **Build Pack**, selecione **Dockerfile**.
-4. Mantenha a porta interna como `80`.
+4. Mantenha a porta interna como `8080` (ou defina a variável `PORT` e use o mesmo valor).
 5. Faça o deploy.
 
 > Como o app é SPA, o Nginx já está configurado com fallback para `index.html`.
+
+### Deploy no Coolify
+
+A imagem Docker escuta por padrão na porta interna `8080` (configurável pela variável `PORT`). No Coolify, use apenas a porta exposta da aplicação para o proxy/rede interna e evite mapear uma porta do host (por exemplo, `8080:8080`), pois o mapeamento direto para o host impede rolling updates.
+
