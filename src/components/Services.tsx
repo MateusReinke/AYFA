@@ -74,7 +74,7 @@ const services: Service[] = [
     title: "Sua Empresa",
     subtitle: "Corporativo",
     description: "Gestão de risco inteligente para blindar seu patrimônio, seus benefícios e sua operação.",
-    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=88",
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=88",
     icon: Building,
     color: "text-primary",
     bgIcon: "bg-primary",
@@ -98,7 +98,7 @@ const services: Service[] = [
     title: "Eventos",
     subtitle: "Entretenimento",
     description: "Proteção para eventos, equipamentos e participantes, com coberturas especializadas para cada operação.",
-    image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1400&q=88",
+    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1400&q=88",
     icon: Calendar,
     color: "text-accent",
     bgIcon: "bg-accent",
@@ -146,8 +146,8 @@ const services: Service[] = [
 
 const Services = () => {
   const { ref, isVisible } = useScrollReveal();
-  const [activeId, setActiveId] = useState<number | null>(null);
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [activeId, setActiveId] = useState<number | null>(0);
+  const [hoveredId, setHoveredId] = useState<number | null>(0);
 
   const scrollToContact = () => {
     document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" });
@@ -191,10 +191,10 @@ const Services = () => {
             return (
               <article
                 key={service.id}
-                onClick={() => setActiveId((current) => (current === service.id ? null : service.id))}
+                onClick={() => setActiveId(service.id)}
                 onMouseEnter={() => setHoveredId(service.id)}
                 onMouseLeave={() => setHoveredId(null)}
-                className={`relative min-h-[520px] rounded-3xl border-2 cursor-pointer overflow-hidden transition-all duration-700 ease-out flex flex-col group shadow-card ${
+                className={`relative min-h-[440px] rounded-3xl border-2 cursor-pointer overflow-hidden transition-all duration-700 ease-out flex flex-col group shadow-card sm:min-h-[500px] lg:min-h-[560px] ${
                   isActive
                     ? `md:col-span-2 bg-white/95 dark:bg-card/90 border-border/50 shadow-2xl ${service.shadow}`
                     : `bg-white/80 dark:bg-card/70 backdrop-blur-md border-white/50 dark:border-white/10 ${service.border}`
@@ -204,10 +204,10 @@ const Services = () => {
                   src={service.image}
                   alt={`Imagem profissional referente a ${service.title}`}
                   className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
-                    isActive ? "scale-100 opacity-34 dark:opacity-24" : "scale-105 opacity-52 dark:opacity-30 group-hover:scale-100"
+                    isActive ? "scale-100 opacity-28 dark:opacity-20" : "scale-105 opacity-34 dark:opacity-22 group-hover:scale-100"
                   }`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-background/92 via-background/80 to-background/98 dark:from-slate-950/82 dark:via-slate-950/82 dark:to-slate-950/96" />
+                <div className="absolute inset-0 bg-gradient-to-b from-background/96 via-background/90 to-background dark:from-slate-950/90 dark:via-slate-950/90 dark:to-slate-950" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,transparent_0%,rgba(2,6,23,0.12)_48%,rgba(2,6,23,0.28)_100%)] dark:bg-[radial-gradient(circle_at_50%_38%,transparent_0%,rgba(2,6,23,0.34)_46%,rgba(2,6,23,0.72)_100%)]" />
                 <div className={`absolute inset-x-0 top-0 h-1 ${service.bgIcon} opacity-80`} />
                 <service.icon
@@ -217,7 +217,7 @@ const Services = () => {
                 />
 
                 <div className="absolute inset-0 p-6 md:p-8 flex flex-col h-full w-full">
-                  <div className={`flex items-center gap-4 shrink-0 rounded-2xl bg-background/82 p-3 shadow-sm ring-1 ring-border/70 backdrop-blur-md transition-all duration-500 dark:bg-slate-950/62 ${isActive ? "translate-x-0" : "justify-center lg:justify-start"}`}>
+                  <div className={`flex items-center gap-4 shrink-0 rounded-2xl bg-background/94 p-3 shadow-sm ring-1 ring-border/80 backdrop-blur-md transition-all duration-500 dark:bg-slate-950/62 ${isActive ? "translate-x-0" : "justify-center lg:justify-start"}`}>
                     <div className={`rounded-xl flex items-center justify-center shrink-0 transition-all duration-500 shadow-sm ${isActive ? `w-14 h-14 ${service.bgIcon} text-white` : "w-10 h-10 bg-white/40 dark:bg-white/10 text-foreground"}`}>
                       <service.icon className={isActive ? "w-7 h-7" : "w-5 h-5"} />
                     </div>
@@ -240,7 +240,7 @@ const Services = () => {
                     </div>
                   )}
 
-                  <div className={`flex-1 flex flex-col mt-6 rounded-3xl bg-background/78 p-4 shadow-sm ring-1 ring-border/70 backdrop-blur-md transition-all duration-500 dark:bg-slate-950/58 sm:p-5 ${isActive ? "opacity-100 translate-y-0 relative" : "opacity-0 translate-y-4 absolute pointer-events-none"}`}>
+                  <div className={`flex-1 flex flex-col mt-6 rounded-3xl bg-background/94 p-4 shadow-md ring-1 ring-border/80 backdrop-blur-md transition-all duration-500 dark:bg-slate-950/58 sm:p-5 ${isActive ? "opacity-100 translate-y-0 relative" : "opacity-0 translate-y-4 absolute pointer-events-none"}`}>
                     <p className="text-left text-foreground text-base md:text-lg mb-6 leading-relaxed max-w-xl font-medium">
                       {service.description}
                     </p>
@@ -258,7 +258,7 @@ const Services = () => {
                           {feature.coverages && (
                             <div className="mt-3 max-h-0 overflow-hidden rounded-2xl border border-transparent bg-card/90 px-4 text-left opacity-0 transition-all duration-300 group-hover/item:max-h-96 group-hover/item:border-border group-hover/item:py-4 group-hover/item:opacity-100">
                               <p className={`mb-2 text-xs font-bold uppercase tracking-widest ${service.color}`}>Coberturas</p>
-                              <ul className="space-y-2 text-xs font-medium text-muted-foreground">
+                              <ul className="space-y-2 text-xs font-medium text-foreground/85">
                                 {feature.coverages.map((coverage) => (
                                   <li key={coverage} className="flex gap-2">
                                     <CheckCircle className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${service.color}`} />
