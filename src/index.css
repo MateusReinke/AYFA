@@ -209,6 +209,35 @@
     }
   }
 
+  @keyframes honeycomb-switch {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.76) rotate(-8deg);
+      filter: saturate(0.72) blur(8px);
+    }
+    58% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.04) rotate(2deg);
+      filter: saturate(1.08) blur(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1) rotate(0);
+      filter: saturate(1) blur(0);
+    }
+  }
+
+  @keyframes honeycomb-orbit {
+    0%, 100% {
+      opacity: 0.2;
+      filter: grayscale(1) saturate(0.8);
+    }
+    50% {
+      opacity: 0.38;
+      filter: grayscale(0.25) saturate(1.15);
+    }
+  }
+
   @keyframes spin-slow {
     from {
       transform: translate(-50%, -50%) rotate(0deg);
@@ -241,6 +270,21 @@
 
   .animate-float-subtle {
     animation: float-subtle 6s ease-in-out infinite;
+  }
+
+  .animate-honeycomb-switch {
+    animation: honeycomb-switch 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-honeycomb-orbit {
+    animation: honeycomb-orbit 1.25s ease-in-out both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-honeycomb-switch,
+    .animate-honeycomb-orbit {
+      animation: none;
+    }
   }
 
   .scrollbar-none {
