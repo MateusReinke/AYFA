@@ -191,6 +191,16 @@
     }
   }
 
+
+  @keyframes spin-slow {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
   .animate-fade-in {
     animation: fade-in 0.8s ease-out forwards;
   }
@@ -206,6 +216,10 @@
   .animate-gradient {
     background-size: 200% 200%;
     animation: gradient-shift 4s ease infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 26s linear infinite;
   }
 
   .text-gradient {
