@@ -1,57 +1,37 @@
 import { useEffect, useState } from "react";
-import { Building2, CalendarCheck, CheckCircle2, ClipboardCheck, HeartHandshake, ShieldCheck, Sparkles } from "lucide-react";
+import { CalendarCheck, ClipboardCheck, FileText, HeartHandshake, ShieldCheck, Users } from "lucide-react";
 import logo from "@/assets/ayfa-logo.png";
 
 const serviceSlides = [
   {
-    eyebrow: "Seguro para Eventos",
-    title: "O tema é claro: proteção inteligente para eventos memoráveis.",
-    description: "Coberturas para público, montagem, equipamentos, alimentos, artistas e responsabilidade civil em uma leitura consultiva de risco.",
-    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1600&q=85",
-    icon: CalendarCheck,
+    label: "Pessoas",
+    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=2200&q=90",
     imagePosition: "center",
-    metric: "+ segurança para produções",
   },
   {
-    eyebrow: "Responsabilidade Civil",
-    title: "Risco mapeado antes de virar problema.",
-    description: "Consultoria para reduzir exposição jurídica, proteger decisões e preservar a continuidade de operações complexas.",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=85",
-    icon: ShieldCheck,
+    label: "Empresas",
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2200&q=90",
     imagePosition: "center",
-    metric: "gestão preventiva de riscos",
   },
   {
-    eyebrow: "Seguros Pessoais",
-    title: "Cuidado sob medida para a vida em movimento.",
-    description: "Soluções para vida, acidentes pessoais, residência, automóvel, viagem e equipamentos portáteis.",
-    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1600&q=85",
-    icon: HeartHandshake,
+    label: "Veículos",
+    image: "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=2200&q=90",
     imagePosition: "center",
-    metric: "cuidado em cada etapa",
   },
   {
-    eyebrow: "Soluções Empresariais",
-    title: "Proteção corporativa sob medida para cada etapa.",
-    description: "Proteção patrimonial, benefícios, frotas, cyber risk e seguros corporativos personalizados.",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=85",
-    icon: Building2,
+    label: "Patrimônio",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=2200&q=90",
     imagePosition: "center",
-    metric: "estratégia para crescer",
   },
-];
-
-const serviceSelectors = [
-  { icon: CalendarCheck, label: "Eventos" },
-  { icon: ClipboardCheck, label: "RC Geral" },
-  { icon: HeartHandshake, label: "Pessoais" },
-  { icon: Building2, label: "Empresarial" },
+  {
+    label: "Eventos",
+    image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=2200&q=90",
+    imagePosition: "center",
+  },
 ];
 
 const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
-  const currentSlide = serviceSlides[activeSlide];
-  const CurrentIcon = currentSlide.icon;
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -61,87 +41,76 @@ const Hero = () => {
     return () => window.clearInterval(intervalId);
   }, []);
 
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section id="hero" className="relative min-h-screen overflow-hidden bg-[#f7fbff] pt-16 text-slate-950 md:pt-20">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(34,211,238,0.16),transparent_30%),radial-gradient(circle_at_84%_10%,rgba(234,179,8,0.12),transparent_28%),linear-gradient(135deg,#ffffff_0%,#f7fbff_48%,#eef7ff_100%)]" />
-      <div className="absolute inset-0 opacity-60 [background-image:linear-gradient(rgba(15,23,42,.045)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,.045)_1px,transparent_1px)] [background-size:88px_88px]" />
-      <div className="absolute left-1/2 top-24 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-cyan/10 blur-3xl" />
-      <div className="absolute -right-32 bottom-12 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
+    <section id="hero" className="relative min-h-screen overflow-hidden bg-slate-950 pt-16 text-slate-950 md:pt-20">
+      <div className="absolute inset-0">
+        {serviceSlides.map((slide, index) => (
+          <img
+            key={slide.label}
+            src={slide.image}
+            alt={`Seguro para ${slide.label}`}
+            className={`absolute inset-0 h-full w-full object-cover transition-all [transition-duration:1800ms] ease-out ${
+              activeSlide === index ? "scale-100 opacity-100" : "scale-110 opacity-0"
+            }`}
+            style={{ objectPosition: slide.imagePosition }}
+          />
+        ))}
+        <div className="absolute inset-0 bg-white/68 backdrop-blur-[1.5px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_22%,rgba(255,255,255,0.84),transparent_30%),radial-gradient(circle_at_18%_48%,rgba(34,211,238,0.28),transparent_24%),radial-gradient(circle_at_80%_35%,rgba(59,130,246,0.22),transparent_26%),linear-gradient(180deg,rgba(248,250,252,0.40)_0%,rgba(226,232,240,0.74)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-slate-200/70 via-slate-100/20 to-transparent" />
+      </div>
 
-      <div className="container relative z-10 grid min-h-[calc(100vh-5rem)] items-center gap-10 px-4 py-10 md:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:py-16">
-        <div className="mx-auto max-w-3xl text-center lg:text-left">
-          <div className="mb-7 flex justify-center lg:justify-start animate-fade-in opacity-0" style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}>
-            <div className="relative rounded-[2.25rem] border border-slate-200/80 bg-white px-6 py-5 shadow-[0_28px_90px_rgba(15,23,42,0.10)] backdrop-blur sm:px-8 sm:py-6">
-              <span className="absolute -inset-3 -z-10 rounded-[2.75rem] bg-gradient-to-r from-cyan/15 via-accent/10 to-cyan/15 blur-xl animate-gradient" />
-              <img src={logo} alt="Ayfa Seguros" className="h-24 w-auto sm:h-32 lg:h-36" />
+      <div className="container relative z-10 flex min-h-[calc(100vh-5rem)] items-center justify-center px-4 py-10 md:px-6">
+        <div className="mx-auto flex w-full max-w-5xl flex-col items-center text-center">
+          <div className="animate-fade-in opacity-0" style={{ animationDelay: "0.05s", animationFillMode: "forwards" }}>
+            <img src={logo} alt="Ayfa Seguros" className="mx-auto h-36 w-auto drop-shadow-[0_18px_28px_rgba(15,23,42,0.18)] sm:h-44 md:h-52" />
+          </div>
+
+          <p className="mt-10 max-w-4xl animate-fade-in text-2xl font-extrabold leading-snug tracking-tight text-slate-900 opacity-0 drop-shadow-sm md:text-3xl" style={{ animationDelay: "0.18s", animationFillMode: "forwards" }}>
+            Soluções personalizadas em seguros para você, sua família e seu negócio, com atendimento especializado e a segurança de quem cuida de cada detalhe.
+          </p>
+
+          <div className="mt-10 flex w-full animate-fade-in flex-col items-center justify-center gap-4 opacity-0 sm:flex-row" style={{ animationDelay: "0.32s", animationFillMode: "forwards" }}>
+            <button onClick={() => scrollToSection("contato")} className="inline-flex h-16 w-full items-center justify-center rounded-2xl bg-gradient-to-r from-primary to-accent px-8 text-lg font-bold text-white shadow-[0_18px_45px_rgba(37,99,235,0.32)] transition hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(37,99,235,0.42)] sm:w-auto sm:min-w-64">
+              Solicitar Cotação
+            </button>
+            <button onClick={() => scrollToSection("servicos")} className="inline-flex h-16 w-full items-center justify-center rounded-2xl border border-white/70 bg-white/58 px-8 text-lg font-bold text-slate-900 shadow-lg backdrop-blur-md transition hover:-translate-y-1 hover:bg-white/78 sm:w-auto sm:min-w-72">
+              Conheça Nossos Serviços
+            </button>
+            <a href="/apresentacao_seguro_eventos__atual.pdf" target="_blank" rel="noreferrer" className="inline-flex h-16 w-full items-center justify-center gap-3 rounded-2xl border border-white/70 bg-white/58 px-8 text-lg font-bold text-slate-900 shadow-lg backdrop-blur-md transition hover:-translate-y-1 hover:bg-white/78 sm:w-auto sm:min-w-80">
+              Apresentação Seguro Eventos <FileText className="h-5 w-5" />
+            </a>
+          </div>
+
+          <div className="mt-16 animate-fade-in opacity-0" style={{ animationDelay: "0.46s", animationFillMode: "forwards" }}>
+            <p className="mb-4 text-base font-bold text-slate-800">Seguros para:</p>
+            <div className="flex flex-wrap justify-center gap-3" aria-label="Selecionar imagem por tipo de seguro">
+              {serviceSlides.map((slide, index) => {
+                const icons = [HeartHandshake, Users, ShieldCheck, ClipboardCheck, CalendarCheck];
+                const SelectorIcon = icons[index];
+                const isSelected = activeSlide === index;
+
+                return (
+                  <button
+                    key={slide.label}
+                    type="button"
+                    onClick={() => setActiveSlide(index)}
+                    className={`inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-bold shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 ${
+                      isSelected ? "bg-white text-primary ring-2 ring-primary/25" : "bg-white/68 text-slate-700 hover:bg-white"
+                    }`}
+                    aria-label={`Mostrar seguros para ${slide.label}`}
+                    aria-pressed={isSelected}
+                  >
+                    <SelectorIcon className="h-4 w-4" />
+                    {slide.label}
+                  </button>
+                );
+              })}
             </div>
-          </div>
-
-          <div className="animate-fade-in opacity-0" style={{ animationDelay: "0.18s", animationFillMode: "forwards" }}>
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan/20 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em] text-primary shadow-sm backdrop-blur">
-              <Sparkles className="h-4 w-4 text-cyan" /> Proteção, estratégia e confiança
-            </p>
-            <h1 className="font-display text-4xl font-bold leading-[0.93] tracking-tight text-slate-950 sm:text-6xl md:text-7xl">
-              Seguros com presença forte, leitura clara e solução sob medida.
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-600 md:text-xl lg:mx-0">
-              A AYFA coloca o risco no centro da conversa para transformar proteção em decisão inteligente para eventos, empresas e pessoas.
-            </p>
-          </div>
-
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 animate-fade-in opacity-0" style={{ animationDelay: "0.42s", animationFillMode: "forwards" }} aria-label="Selecionar serviço em destaque">
-            {serviceSlides.map((slide, index) => {
-              const SelectorIcon = serviceSelectors[index].icon;
-              const isSelected = activeSlide === index;
-
-              return (
-                <button
-                  key={slide.eyebrow}
-                  type="button"
-                  onClick={() => setActiveSlide(index)}
-                  className={`group rounded-2xl border px-3 py-4 text-center backdrop-blur transition-all duration-300 hover:-translate-y-1 sm:px-4 ${
-                    isSelected
-                      ? "border-cyan/50 bg-white text-slate-950 shadow-xl shadow-cyan/10"
-                      : "border-slate-200/80 bg-white/70 text-slate-700 shadow-sm hover:border-cyan/40 hover:bg-white"
-                  }`}
-                  aria-label={`Mostrar ${slide.eyebrow}`}
-                  aria-pressed={isSelected}
-                >
-                  <SelectorIcon className={`mx-auto mb-2 h-6 w-6 transition-colors ${isSelected ? "text-accent" : "text-cyan group-hover:text-primary"}`} />
-                  <span className="text-xs font-bold sm:text-sm">{serviceSelectors[index].label}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="relative min-h-[500px] animate-fade-in opacity-0 sm:min-h-[620px] lg:min-h-[700px]" style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}>
-          <div className="absolute left-1/2 top-1/2 h-[84%] w-[84%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan/20 animate-spin-slow" />
-          <div className="absolute left-1/2 top-1/2 h-[66%] w-[66%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-200/80" />
-          <div className="absolute inset-8 rounded-[3rem] border border-slate-200/80 bg-white/50 p-3 shadow-2xl shadow-slate-200/80 backdrop-blur-xl lg:rotate-3" />
-          <div className="absolute inset-12 overflow-hidden rounded-[2.5rem] border border-white shadow-2xl shadow-slate-200/80">
-            {serviceSlides.map((slide, index) => (
-              <img
-                key={slide.eyebrow}
-                src={slide.image}
-                alt={slide.eyebrow}
-                className={`absolute inset-0 h-full w-full object-cover transition-all duration-1000 ${activeSlide === index ? "scale-100 opacity-100" : "scale-110 opacity-0"}`}
-                style={{ objectPosition: slide.imagePosition }}
-              />
-            ))}
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/72 via-white/18 to-transparent" />
-          </div>
-
-          <div className="absolute bottom-4 left-4 right-4 rounded-3xl border border-slate-200/90 bg-white/95 p-5 text-slate-950 shadow-2xl backdrop-blur-xl sm:bottom-8 sm:left-auto sm:right-0 sm:max-w-md">
-            <div className="flex items-start gap-4">
-              <div className="rounded-2xl bg-gradient-to-br from-primary to-accent p-3 text-white shadow-lg"><CurrentIcon className="h-6 w-6" /></div>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.22em] text-accent">{currentSlide.metric}</p>
-                <h2 className="mt-1 text-left text-xl font-bold leading-tight">{currentSlide.eyebrow}</h2>
-                <p className="mt-2 text-left text-sm leading-relaxed text-slate-600">{currentSlide.description}</p>
-              </div>
-            </div>
-            <div className="mt-4 flex items-center gap-2 text-sm font-bold text-slate-700"><CheckCircle2 className="h-4 w-4 text-cyan" /> Tema principal explícito e navegação dinâmica</div>
           </div>
         </div>
       </div>
