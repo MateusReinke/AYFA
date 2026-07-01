@@ -32,15 +32,6 @@ const serviceSlides = [
 
 const icons = [HeartHandshake, Building2, Car, Home, CalendarCheck];
 
-const honeycombSlots = [
-  { left: "18%", top: "18%" },
-  { left: "72%", top: "17%" },
-  { left: "85%", top: "50%" },
-  { left: "65%", top: "82%" },
-  { left: "27%", top: "82%" },
-  { left: "10%", top: "49%" },
-];
-
 const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -52,7 +43,6 @@ const Hero = () => {
     return () => window.clearInterval(intervalId);
   }, []);
 
-  const decorativeTiles = Array.from({ length: 30 }, (_, index) => serviceSlides[index % serviceSlides.length]);
 
   return (
     <section id="hero" className="relative overflow-hidden bg-transparent pt-20 text-foreground md:pt-24">
@@ -63,7 +53,7 @@ const Hero = () => {
       <div className="absolute inset-0 opacity-[0.045] [background-image:radial-gradient(currentColor_1px,transparent_1px)] [background-size:28px_28px]" />
 
       <div className="container relative z-10 px-6 py-14 md:px-8 lg:py-18 xl:py-20">
-        <div className="grid min-h-[calc(100vh-6rem)] items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 xl:min-h-[700px]">
+        <div className="grid min-h-[calc(100vh-6rem)] items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10 xl:min-h-[700px]">
           <div className="mx-auto flex max-w-2xl flex-col items-center text-center lg:mx-0 lg:items-start lg:text-left">
             <img src={logo} alt="Ayfa Seguros" className="mb-8 h-40 w-fit self-center drop-shadow-[0_22px_40px_rgba(0,0,0,0.16)] sm:h-48 lg:h-56 xl:h-60" />
 
@@ -76,7 +66,7 @@ const Hero = () => {
           </div>
 
           <div className="flex w-full flex-col items-center gap-6 lg:items-stretch">
-            <div className="relative mx-auto w-full max-w-[760px] lg:mr-0">
+            <div className="relative mx-auto w-full max-w-[680px] lg:mr-0">
               <div className="absolute -inset-8 rounded-[44px] bg-gradient-to-br from-primary/25 via-cyan/10 to-accent/20 blur-3xl" />
               <div className="relative min-h-[560px] overflow-hidden rounded-[3rem] honeycomb-fade sm:min-h-[600px]">
                 <div className="pointer-events-none absolute inset-0 opacity-80">
@@ -99,12 +89,7 @@ const Hero = () => {
                 {serviceSlides.map((slide, index) => {
                   const SelectorIcon = icons[index] || Users;
                   const isSelected = activeSlide === index;
-                  const inactiveSlot = serviceSlides
-                    .filter((_, slideIndex) => slideIndex !== activeSlide)
-                    .findIndex((inactiveSlide) => inactiveSlide.label === slide.label);
-                  const tilePosition = isSelected
-                    ? { left: "50%", top: "50%" }
-                    : honeycombSlots[inactiveSlot % honeycombSlots.length];
+                  const tilePosition = { left: "50%", top: "50%" };
 
                   return (
                     <button
@@ -113,8 +98,8 @@ const Hero = () => {
                       onClick={() => setActiveSlide(index)}
                       className={`group absolute honeycomb-tile honeycomb-photo-border isolate -translate-x-1/2 -translate-y-1/2 overflow-hidden text-left shadow-[0_24px_60px_rgba(15,23,42,.18)] transition-all duration-1000 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 ${
                         isSelected
-                          ? "z-20 h-[330px] w-[330px] scale-105 opacity-100 sm:h-[400px] sm:w-[400px] lg:h-[440px] lg:w-[440px]"
-                          : "z-10 h-[155px] w-[155px] scale-90 opacity-48 grayscale-[35%] hover:scale-95 hover:opacity-80 sm:h-[205px] sm:w-[205px] lg:h-[225px] lg:w-[225px]"
+                          ? "z-20 h-[280px] w-[280px] opacity-100 sm:h-[380px] sm:w-[380px] lg:h-[440px] lg:w-[440px]"
+                          : "pointer-events-none hidden opacity-0"
                       }`}
                       aria-label={`Mostrar seguros para ${slide.label}`}
                       aria-pressed={isSelected}
