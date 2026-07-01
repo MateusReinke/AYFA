@@ -162,6 +162,11 @@ const Hero = () => {
             </div>
             <div className="mt-4 flex items-center gap-2 text-sm font-bold text-slate-700"><CheckCircle2 className="h-4 w-4 text-cyan" /> Atendimento consultivo e personalizado</div>
           </div>
+
+          <div className="absolute right-4 top-12 hidden rounded-3xl border border-white bg-white/85 px-5 py-4 shadow-[0_20px_60px_rgba(15,23,42,0.14)] backdrop-blur-xl md:block">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-500">Imagem em foco</p>
+            <p className="mt-1 text-sm font-bold text-primary">{currentSlide.eyebrow}</p>
+          </div>
         </div>
       </div>
     </section>
