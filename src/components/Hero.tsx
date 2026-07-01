@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Building2, CalendarCheck, Car, HeartHandshake, Home, ShieldCheck, Users } from "lucide-react";
+import { Building2, CalendarCheck, Car, HeartHandshake, Home, Users } from "lucide-react";
 import logo from "@/assets/ayfa-logo.png";
 
 const serviceSlides = [
@@ -43,8 +43,8 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="hero" className="relative overflow-hidden bg-background pt-20 text-foreground md:pt-24">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(var(--primary)/0.18),transparent_34%),radial-gradient(circle_at_85%_10%,hsl(var(--accent)/0.14),transparent_30%),linear-gradient(135deg,hsl(var(--background))_0%,hsl(var(--secondary)/0.42)_52%,hsl(var(--background))_100%)]" />
+    <section id="hero" className="relative overflow-hidden bg-transparent pt-20 text-foreground md:pt-24">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,hsl(var(--primary)/0.13),transparent_34%),radial-gradient(circle_at_85%_10%,hsl(var(--accent)/0.10),transparent_30%)]" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" />
       <div className="absolute left-1/2 top-24 h-[520px] w-[520px] -translate-x-1/2 rounded-full border border-white/10 opacity-40" />
       <div className="absolute inset-0 opacity-[0.045] [background-image:radial-gradient(currentColor_1px,transparent_1px)] [background-size:28px_28px]" />
@@ -52,12 +52,7 @@ const Hero = () => {
       <div className="container relative z-10 px-6 py-14 md:px-8 lg:py-18 xl:py-20">
         <div className="grid min-h-[calc(100vh-6rem)] items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 xl:min-h-[700px]">
           <div className="mx-auto flex max-w-2xl flex-col items-center text-center lg:mx-0 lg:items-start lg:text-left">
-            <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-border/70 bg-card/70 px-4 py-2 shadow-sm backdrop-blur-md">
-              <ShieldCheck className="h-4 w-4 text-primary" strokeWidth={2} />
-              <span className="text-xs font-bold uppercase tracking-[0.24em] text-muted-foreground">Consultoria em seguros desde 1993</span>
-            </div>
-
-            <img src={logo} alt="Ayfa Seguros" className="mb-7 h-24 w-fit drop-shadow-[0_18px_34px_rgba(0,0,0,0.14)] sm:h-28 lg:h-32" />
+            <img src={logo} alt="Ayfa Seguros" className="mb-8 h-24 w-fit self-center drop-shadow-[0_18px_34px_rgba(0,0,0,0.14)] sm:h-28 lg:h-32" />
 
             <h1 className="max-w-[760px] text-balance text-4xl font-extrabold leading-[1.04] tracking-tight text-foreground sm:text-5xl lg:text-[3.8rem]">
               Proteção sob medida para pessoas, empresas e eventos.
@@ -66,37 +61,60 @@ const Hero = () => {
               Atendimento consultivo, coberturas bem estruturadas e acompanhamento próximo para que cada decisão transmita segurança e confiança.
             </p>
 
-            <div className="mt-8 grid w-full max-w-xl grid-cols-1 gap-3 sm:grid-cols-3">
-              {["Análise técnica", "Atendimento próximo", "Gestão de riscos"].map((item) => (
-                <div key={item} className="rounded-2xl border border-border/70 bg-card/70 px-4 py-3 text-sm font-bold text-foreground shadow-sm backdrop-blur-md">
-                  {item}
-                </div>
-              ))}
-            </div>
           </div>
 
           <div className="flex w-full flex-col items-center gap-6 lg:items-stretch">
-            <div className="relative mx-auto w-full max-w-[660px] lg:mr-0">
-              <div className="absolute -inset-4 rounded-[34px] bg-gradient-to-br from-primary/20 via-accent/5 to-cyan/15 blur-2xl" />
-              <div className="animate-float-subtle relative aspect-[4/3] overflow-hidden rounded-[30px] border border-white/10 bg-card shadow-[0_26px_70px_rgba(0,0,0,.24)]">
-                {serviceSlides.map((slide, index) => (
-                  <img
-                    key={slide.label}
-                    src={slide.image}
-                    alt={`Seguro para ${slide.label}`}
-                    loading={index === 0 ? "eager" : "lazy"}
-                    decoding="async"
-                    className={`absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out ${
-                      activeSlide === index ? "scale-100 opacity-100" : "scale-[1.03] opacity-0"
-                    }`}
-                    style={{ objectPosition: slide.imagePosition }}
-                  />
-                ))}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
-                <div className="absolute bottom-5 left-5 rounded-2xl border border-white/15 bg-slate-950/55 px-4 py-3 text-white shadow-xl backdrop-blur-md">
-                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/65">Seguro para</p>
-                  <p className="mt-1 text-2xl font-extrabold">{serviceSlides[activeSlide].label}</p>
-                </div>
+            <div className="relative mx-auto w-full max-w-[720px] lg:mr-0">
+              <div className="absolute -inset-8 rounded-[44px] bg-gradient-to-br from-primary/25 via-cyan/10 to-accent/20 blur-3xl" />
+              <div className="relative min-h-[520px] sm:min-h-[560px]">
+                {serviceSlides.map((slide, index) => {
+                  const SelectorIcon = icons[index] || Users;
+                  const isSelected = activeSlide === index;
+                  const inactiveSlot = serviceSlides
+                    .filter((_, slideIndex) => slideIndex !== activeSlide)
+                    .findIndex((inactiveSlide) => inactiveSlide.label === slide.label);
+                  const positions = [
+                    "left-[2%] top-[7%]",
+                    "right-[5%] top-[5%]",
+                    "left-[7%] bottom-[4%]",
+                    "right-[3%] bottom-[7%]",
+                  ];
+                  const tilePosition = isSelected
+                    ? "left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                    : positions[inactiveSlot];
+
+                  return (
+                    <button
+                      key={slide.label}
+                      type="button"
+                      onClick={() => setActiveSlide(index)}
+                      className={`group absolute ${tilePosition} honeycomb-tile isolate overflow-hidden text-left shadow-[0_24px_60px_rgba(15,23,42,.18)] transition-all duration-700 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 ${
+                        isSelected
+                          ? "z-20 h-[300px] w-[300px] scale-110 opacity-100 sm:h-[360px] sm:w-[360px] lg:h-[390px] lg:w-[390px]"
+                          : "z-10 h-[190px] w-[190px] scale-95 opacity-55 grayscale-[20%] hover:scale-100 hover:opacity-80 sm:h-[230px] sm:w-[230px] lg:h-[250px] lg:w-[250px]"
+                      }`}
+                      aria-label={`Mostrar seguros para ${slide.label}`}
+                      aria-pressed={isSelected}
+                    >
+                      <img
+                        src={slide.image}
+                        alt={`Seguro para ${slide.label}`}
+                        loading={index === 0 ? "eager" : "lazy"}
+                        decoding="async"
+                        className={`h-full w-full object-cover transition-transform duration-700 ${isSelected ? "scale-100" : "scale-110 group-hover:scale-105"}`}
+                        style={{ objectPosition: slide.imagePosition }}
+                      />
+                      <div className={`absolute inset-0 transition-all duration-700 ${isSelected ? "bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent" : "bg-slate-950/35"}`} />
+                      <div className={`absolute inset-x-0 bottom-0 p-7 text-white transition-all duration-500 ${isSelected ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"}`}>
+                        <span className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/15 backdrop-blur-md">
+                          <SelectorIcon className="h-5 w-5" strokeWidth={1.8} />
+                        </span>
+                        <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/70">Seguro para</p>
+                        <p className="mt-1 text-2xl font-extrabold sm:text-3xl">{slide.label}</p>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 

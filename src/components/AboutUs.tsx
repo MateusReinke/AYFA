@@ -51,7 +51,7 @@ const AboutUs = () => {
   return (
     <section
       id="quem-somos"
-      className="min-h-screen flex flex-col py-[50px] md:py-[70px] lg:py-[100px] relative overflow-hidden bg-secondary/5"
+      className="min-h-screen flex flex-col py-[50px] md:py-[70px] lg:py-[100px] relative overflow-hidden bg-transparent"
     >
       {/* 1. IMAGEM DE FUNDO */}
       <div className="absolute inset-0 z-0">
@@ -62,7 +62,7 @@ const AboutUs = () => {
         />
 
         {/* Overlay Gradiente */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/25 to-background/70" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/20 to-transparent" />
       </div>
 
