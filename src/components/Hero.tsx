@@ -10,7 +10,7 @@ const serviceSlides = [
   },
   {
     label: "Empresas",
-    image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=88&fm=webp",
+    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=86&fm=webp",
     imagePosition: "center",
   },
   {
@@ -25,7 +25,7 @@ const serviceSlides = [
   },
   {
     label: "Eventos",
-    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=88&fm=webp",
+    image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1200&q=86&fm=webp",
     imagePosition: "center",
   },
 ];
@@ -68,7 +68,24 @@ const Hero = () => {
           <div className="flex w-full flex-col items-center gap-6 lg:items-stretch">
             <div className="relative mx-auto w-full max-w-[680px] lg:mr-0">
               <div className="absolute -inset-8 rounded-[44px] bg-gradient-to-br from-primary/25 via-cyan/10 to-accent/20 blur-3xl" />
-              <div className="relative min-h-[360px] overflow-hidden rounded-[2rem] honeycomb-fade sm:min-h-[500px] lg:min-h-[580px]">
+              <div className="relative min-h-[560px] overflow-hidden rounded-[3rem] honeycomb-fade sm:min-h-[600px]">
+                <div className="pointer-events-none absolute inset-0 opacity-80">
+                  {decorativeTiles.map((tile, index) => (
+                    <div
+                      key={`${tile.label}-decor-${index}`}
+                      className="honeycomb-tile honeycomb-photo-border absolute h-24 w-24 overflow-hidden opacity-24 blur-[0.2px] sm:h-32 sm:w-32"
+                      style={{
+                        left: `${(index * 13 + (index % 3) * 7) % 96}%`,
+                        top: `${(index * 19 + (index % 5) * 6) % 92}%`,
+                        transform: `translate(-50%, -50%) scale(${0.62 + (index % 5) * 0.11})`,
+                      }}
+                    >
+                      <img src={tile.image} alt="" aria-hidden="true" className="h-full w-full object-cover grayscale" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/55 via-slate-950/30 to-cyan/35" />
+                    </div>
+                  ))}
+                </div>
+
                 {serviceSlides.map((slide, index) => {
                   const SelectorIcon = icons[index] || Users;
                   const isSelected = activeSlide === index;
@@ -99,8 +116,8 @@ const Hero = () => {
                         className={`h-full w-full object-cover transition-transform duration-1000 ease-out ${isSelected ? "scale-100" : "scale-110 group-hover:scale-105"}`}
                         style={{ objectPosition: slide.imagePosition }}
                       />
-                      <div className={`absolute inset-0 transition-all duration-1000 ${isSelected ? "bg-gradient-to-t from-slate-950/82 via-slate-950/32 to-slate-950/10" : "bg-slate-950/52"}`} />
-                      <div className={`absolute inset-x-5 bottom-7 rounded-3xl border border-white/20 bg-slate-950/70 px-5 py-5 text-center text-white shadow-[0_18px_45px_rgba(2,6,23,.38)] backdrop-blur-md transition-all duration-700 sm:inset-x-8 sm:bottom-9 ${isSelected ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+                      <div className={`absolute inset-0 transition-all duration-1000 ${isSelected ? "bg-[radial-gradient(circle_at_center,rgba(15,23,42,0.08)_0%,rgba(15,23,42,0.36)_48%,rgba(15,23,42,0.86)_100%)]" : "bg-slate-950/55"}`} />
+                      <div className={`absolute left-1/2 top-[58%] w-[64%] -translate-x-1/2 -translate-y-1/2 rounded-3xl border border-white/20 bg-slate-950/42 px-5 py-6 text-center text-white shadow-[0_18px_45px_rgba(2,6,23,.35)] backdrop-blur-sm transition-all duration-700 sm:top-[60%] ${isSelected ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                         <span className="mx-auto mb-3 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-white/15 backdrop-blur-md">
                           <SelectorIcon className="h-5 w-5" strokeWidth={1.8} />
                         </span>
