@@ -30,6 +30,8 @@ const serviceSlides = [
   },
 ];
 
+const decorativeTiles = Array.from({ length: 14 }, (_, index) => serviceSlides[index % serviceSlides.length]);
+
 const icons = [HeartHandshake, Building2, Car, Home, CalendarCheck];
 
 const Hero = () => {
