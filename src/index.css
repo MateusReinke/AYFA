@@ -141,6 +141,11 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    background:
+      radial-gradient(circle at 18% 8%, hsl(var(--primary) / 0.16), transparent 32rem),
+      radial-gradient(circle at 86% 18%, hsl(var(--accent) / 0.13), transparent 30rem),
+      linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--secondary) / 0.42) 38%, hsl(var(--background)) 100%);
+    background-attachment: fixed;
   }
 
   /* Força tema escuro como padrão visual */
@@ -244,6 +249,10 @@
 
   .scrollbar-none::-webkit-scrollbar {
     display: none;
+  }
+
+  .honeycomb-tile {
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%);
   }
 
   .premium-card {

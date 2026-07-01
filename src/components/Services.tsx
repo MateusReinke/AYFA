@@ -156,7 +156,7 @@ const Services = () => {
   return (
     <section
       id="servicos"
-      className="min-h-screen flex flex-col justify-center relative overflow-hidden bg-background py-[50px] md:py-[70px] lg:py-[100px]"
+      className="min-h-screen flex flex-col justify-center relative overflow-hidden bg-transparent py-[50px] md:py-[70px] lg:py-[100px]"
       ref={ref}
     >
       <div className="absolute inset-0 z-0">
@@ -165,7 +165,7 @@ const Services = () => {
           alt="Background"
           className="w-full h-full object-cover opacity-20 dark:opacity-10 mix-blend-multiply dark:mix-blend-normal blur-sm"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-transparent to-background/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/35 to-background/80" />
       </div>
 
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan/5 rounded-full blur-[120px] pointer-events-none" />
