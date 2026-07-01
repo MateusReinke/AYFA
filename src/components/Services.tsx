@@ -156,7 +156,7 @@ const Services = () => {
   return (
     <section
       id="servicos"
-      className="min-h-screen flex flex-col justify-center relative overflow-hidden bg-background py-24"
+      className="min-h-screen flex flex-col justify-center relative overflow-hidden bg-background py-[50px] md:py-[70px] lg:py-[100px]"
       ref={ref}
     >
       <div className="absolute inset-0 z-0">

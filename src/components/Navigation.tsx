@@ -35,10 +35,10 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-elegant border-b border-border/50"
-          : "bg-transparent"
+          ? "border-b border-white/60 bg-white/82 shadow-[0_10px_30px_rgba(15,23,42,.08)] backdrop-blur-xl dark:border-white/10 dark:bg-background/82"
+          : "border-b border-transparent bg-white/55 backdrop-blur-md dark:bg-background/55"
       }`}
     >
       <div className="container px-4 md:px-6 mx-auto max-w-7xl">
@@ -100,7 +100,7 @@ const Navigation = () => {
               />
               <Button
                 onClick={() => scrollToSection("contato")}
-                className="bg-gradient-to-r from-accent to-gold hover:opacity-90 text-white font-bold px-4 py-3 shadow-glow text-xs xl:text-sm"
+                className="h-12 rounded-[14px] bg-gradient-to-r from-primary to-accent px-5 text-xs font-bold text-white shadow-[0_12px_26px_rgba(37,99,235,.22)] transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(37,99,235,.30)] xl:text-sm"
                 size="sm"
               >
                 Cotação
@@ -146,7 +146,7 @@ const Navigation = () => {
                     ))}
                     <Button
                       onClick={() => scrollToSection("contato")}
-                      className="bg-gradient-to-r from-accent to-gold text-white w-full mt-4"
+                      className="mt-4 h-12 w-full rounded-[14px] bg-gradient-to-r from-primary to-accent font-semibold text-white transition-all duration-300 hover:scale-[1.02]"
                     >
                       Solicitar Cotação
                     </Button>

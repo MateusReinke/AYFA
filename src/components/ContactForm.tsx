@@ -47,7 +47,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contato" className="py-16 md:py-24 lg:py-32 bg-muted relative overflow-hidden" ref={ref}>
+    <section id="contato" className="py-[50px] md:py-[70px] lg:py-[100px] bg-muted relative overflow-hidden" ref={ref}>
       {/* Background decorations */}
       <div className="absolute top-0 right-0 w-48 md:w-96 h-48 md:h-96 bg-cyan rounded-full blur-3xl" style={{ opacity: 0.05 }} />
       <div className="absolute bottom-0 left-0 w-40 md:w-80 h-40 md:h-80 bg-purple rounded-full blur-3xl" style={{ opacity: 0.05 }} />
@@ -64,7 +64,7 @@ const ContactForm = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 lg:gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
-          <Card className={`border border-border bg-card shadow-elegant transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+          <Card className={`premium-card border border-border bg-card transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="h-1.5 bg-gradient-to-r from-cyan via-purple to-magenta rounded-t-lg" />
             <CardHeader className="pb-4 md:pb-6 p-4 md:p-6">
               <CardTitle className="font-display text-xl md:text-2xl lg:text-3xl font-bold text-card-foreground">Envie sua Mensagem</CardTitle>
@@ -136,7 +136,7 @@ const ContactForm = () => {
 
           {/* Contact Info */}
           <div className={`space-y-4 md:space-y-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: '200ms' }}>
-            <Card className="border border-border bg-card hover:shadow-elegant transition-all duration-300 overflow-hidden">
+            <Card className="premium-card border border-border bg-card overflow-hidden">
               <div className="h-1 bg-cyan" />
               <CardContent className="p-5 md:pt-8 md:pb-8 md:px-6">
                 <div className="flex items-start gap-4 md:gap-6">
@@ -154,7 +154,7 @@ const ContactForm = () => {
               </CardContent>
             </Card>
 
-            <Card className="border border-border bg-card hover:shadow-elegant transition-all duration-300 overflow-hidden">
+            <Card className="premium-card border border-border bg-card overflow-hidden">
               <div className="h-1 bg-accent" />
               <CardContent className="p-5 md:pt-8 md:pb-8 md:px-6">
                 <div className="flex items-start gap-4 md:gap-6">
@@ -186,7 +186,7 @@ const ContactForm = () => {
               </CardContent>
             </Card>
 
-            <Card className="border border-border bg-card hover:shadow-elegant transition-all duration-300 overflow-hidden">
+            <Card className="premium-card border border-border bg-card overflow-hidden">
               <div className="h-1 bg-purple" />
               <CardContent className="p-5 md:pt-8 md:pb-8 md:px-6">
                 <div className="flex items-start gap-4 md:gap-6">

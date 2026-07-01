@@ -1,5 +1,5 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import bgImage from "@/assets/coverage-bg.jpg"; 
+import bgImage from "@/assets/coverage-bg.jpg";
 
 // Importa automaticamente todas as imagens da pasta clients
 const clientModules = import.meta.glob<{ default: string }>([
@@ -22,23 +22,23 @@ const Clients = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section 
-      id="clientes" 
-      className="py-16 md:py-24 lg:py-28 relative overflow-hidden bg-background" 
+    <section
+      id="clientes"
+      className="py-[50px] md:py-[70px] lg:py-[100px] relative overflow-hidden bg-background"
       ref={ref}
     >
       {/* BACKGROUND SUTIL */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={bgImage} 
-          alt="Background Texture" 
+        <img
+          src={bgImage}
+          alt="Background Texture"
           className="w-full h-full object-cover opacity-5 dark:opacity-[0.02] grayscale blur-sm"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background" />
       </div>
 
       <div className="container px-4 md:px-6 relative z-10">
-        
+
         {/* HEADER */}
         <div className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-secondary/50 border border-border/50 backdrop-blur-sm">
@@ -54,13 +54,13 @@ const Clients = () => {
 
         {/* GRID DE LOGOS */}
         {clientImages.length > 0 ? (
-          <div 
+          <div
             className={`grid grid-cols-1 min-[420px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8 items-stretch transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
             {clientImages.map((logo, index) => (
-              <div 
+              <div
                 key={index}
-                className="group relative flex min-h-32 w-full items-center justify-center rounded-2xl border border-border/70 bg-card/85 px-6 py-8 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:scale-[1.02] hover:border-primary/30 hover:bg-card hover:shadow-elegant cursor-default"
+                className="group relative flex min-h-32 w-full items-center justify-center premium-card rounded-[20px] border border-border/70 bg-card/85 px-6 py-8 backdrop-blur-sm hover:scale-[1.02] hover:border-primary/30 hover:bg-card cursor-default"
               >
                 {/* TRUQUE DE CSS PARA LOGOS PERFEITOS:
                    1. opacity-60: Deixa o logo sutil inicialmente.
@@ -68,23 +68,23 @@ const Clients = () => {
                    3. dark:brightness-0 dark:invert: No tema escuro, transforma PRETO em BRANCO puro.
                    4. hover: Recupera a cor original (opcional) ou aumenta a opacidade.
                 */}
-                <img 
-                  src={logo.src} 
+                <img
+                  src={logo.src}
                   alt={logo.name}
                   className={`
-                    h-20 max-h-24 w-full object-contain relative z-10 sm:h-24 md:h-28 
+                    h-20 max-h-24 w-full object-contain relative z-10 sm:h-24 md:h-28
                     transition-all duration-300
-                    
+
                     /* ESTADO NORMAL (TEMA CLARO) */
                     opacity-85 grayscale contrast-125
-                    
+
                     /* ESTADO NORMAL (TEMA ESCURO - A MÁGICA ACONTECE AQUI) */
-                    dark:brightness-0 dark:invert 
+                    dark:brightness-0 dark:invert
 
                     /* HOVER (Recupera visibilidade total) */
-                    group-hover:opacity-100 
+                    group-hover:opacity-100
                     /* Se quiser cor no hover, remova o grayscale abaixo, mas no escuro pode ficar ruim */
-                    group-hover:grayscale-0 
+                    group-hover:grayscale-0
                     group-hover:dark:invert-0 group-hover:dark:brightness-100
                   `}
                 />
